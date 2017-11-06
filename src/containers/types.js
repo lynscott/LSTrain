@@ -9,7 +9,7 @@ class TypeList extends Component {
       return (
         <li key={type.type}
             onClick={() => this.props.selectType(type)}
-            className="list-group-item">
+            className="list-group-item list-group-item-action">
             {type.type}
         </li>
       );
@@ -18,16 +18,18 @@ class TypeList extends Component {
 
   render() {
     return (
-      <ul className="list-group col-sm-4">
+      <div>
+      <ul className="list-group">
         {this.renderList()}
       </ul>
+      </div>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    types: state.types
+    types: state.types,
   };
 }
 
