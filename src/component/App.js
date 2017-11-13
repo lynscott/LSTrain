@@ -3,6 +3,9 @@ import TypeList from '../containers/types.js';
 import TypeDetail from '../containers/type_detail';
 import PlanDetail from '../containers/plan_detail';
 import PlanList from '../containers/plans.js';
+import main from '../img/main2.png';
+import training from '../img/training2.png';
+import InfoBar from '../containers/user_info.js';
 
 class App extends Component {
   render() {
@@ -10,22 +13,61 @@ class App extends Component {
     <div>
       <div className="jumbotron jumbotron-fluid" id="header">
         <div className="container">
-        <h1 className="display-3">Free Plans!</h1>
+         <img src={main} className="img-fluid" alt="header"/>
+        </div>
+      </div>
+      <div className="container">
+        <div className="jumbotron" id="mid">
+          <ul className="list-unstyled">
+            <li className="media">
+
+              <div className="media-body">
+                <h5 className="mt-0 mb-1">Custom Training</h5>
+                At LS Fitness we believe training plans shouldn't be cookie cutter templates.
+                Download a custom training plan based on your goal, body type, and current stats.
+              </div>
+            </li>
+            <li className="media my-4">
+
+              <div className="media-body">
+                <h5 className="mt-0 mb-1">Personalized Nutrtiion</h5>
+                Let us guide you to your goal with specific meal plans that match your training programs.
+              </div>
+            </li>
+            <li className="media">
+
+              <div className="media-body">
+                <h5 className="mt-0 mb-1">Lifestyle</h5>
+                More than a fading fad, let us help you cultivate a lifestyle with our online training system,
+                including weekly check-ins and messaging.
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      <div className="jumbotron jumbotron-fluid" id="training">
+        <div className="container">
+         <img src={training} className="img-fluid" alt="training"/>
         </div>
       </div>
       <div className="container">
         <div className="jumbotron">
+          <h1>Free 10-Day Plans</h1>
           <div className="row justify-content-center">
             <div className="col-lg-6">
               <TypeDetail />
               <TypeList />
             </div>
+            <br></br>
             <div className="col-lg-6">
               <PlanDetail />
               <PlanList />
             </div>
         </div>
+          <InfoBar/>
         </div>
+        <h1>Premium Programs</h1>
       </div>
     </div>
     );

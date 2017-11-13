@@ -7,7 +7,8 @@ class PlanDetail extends Component {
     <div>
       <figure className="figure">
         <img src={this.props.plan.img} className="figure-img img-fluid rounded" alt="bench"/>
-        <figcaption className="figure-caption">{this.props.plan.info}</figcaption>
+        <figcaption className="figure-caption"><strong>{this.props.plan.name}</strong></figcaption>
+        <figcaption className="figure-caption"><strong>{this.props.plan.info}</strong></figcaption>
       </figure>
       <div>
       {this.props.plan.plan}
@@ -18,7 +19,7 @@ class PlanDetail extends Component {
 
   render() {
     if (!this.props.plan) {
-      return <div><h2><span className="badge badge-secondary">Select your goal!</span></h2></div>
+      return <div><h2><span className="badge badge-secondary">Select a plan!</span></h2></div>
     }
 
     return (

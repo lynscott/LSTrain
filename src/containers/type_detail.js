@@ -5,22 +5,18 @@ class TypeDetail extends Component {
   renderType() {
     return (
       <div>
-      <div className="card">
-        <img className="card-img-top" src="http://www.fitnessandpower.com/wp-content/uploads/2016/08/body-type.jpg" alt="Card cap" />
-        <div className="card-body">
-          <h4 className="card-title">{this.props.type.type}</h4>
-          <p className="card-text">{this.props.type.info}</p>
-          <a href="#" className="btn btn-primary" data-toggle="button">Get FREE Plan!</a>
-        </div>
-      </div>
+      <figure className="figure">
+        <img src="http://www.fitnessandpower.com/wp-content/uploads/2016/08/body-type.jpg" className="figure-img img-fluid rounded" alt="bench"/>
+        <figcaption className="figure-caption"><strong>{this.props.type.type}</strong></figcaption>
+        <figcaption className="figure-caption"><strong>{this.props.type.info}</strong></figcaption>
+      </figure>
     </div>
     )
   }
 
   render() {
     if (!this.props.type) {
-      return <div>
-              {/* <img className="img-fluid" src="http://www.fitnessandpower.com/wp-content/uploads/2016/08/body-type.jpg" alt="Card cap" /> */}
+      return <div className="container">
               <h2><span className="badge badge-secondary">Select your body type!</span></h2>
             </div>
     }
