@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import alertify from 'react-alertify-js';
+import Alert from 'react-s-alert';
+
 
 class InfoBar extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class InfoBar extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onInfoSubmit = this.onInfoSubmit.bind(this);
   }
+
 
   onInputChange(event) {
     if (event.target.name ==="name") {
@@ -26,10 +28,16 @@ class InfoBar extends Component {
   onInfoSubmit(event) {
     event.preventDefault();
     if (!this.props.type.type || !this.props.plan.name) {
-      return alertify.alert("please select a plan and body type");
+      return Alert.error("Please select a plan and body type", {
+        position: 'bottom',
+        effect: 'scale',
+      });
     }
     if (this.props.type.type==='Ectomorph') {
-      return alertify.alert( event.target.name.value + " is an Ectomorph")
+      return Alert.success( <p>{event.target.name.value} is an Ectomorph </p>, {
+            position: 'bottom',
+            effect: 'scale',
+          });
     }
   }
 
@@ -37,19 +45,18 @@ class InfoBar extends Component {
     return (
       <form onSubmit={this.onInfoSubmit}>
         <div className="form-row">
-          <div className="col-sm-2">
+          <div className="col-md-3">
             <input type="text" className="form-control" onChange={this.onInputChange} name="name" value={this.state.name} placeholder="Full Name"/>
           </div>
-          <div className="col-sm-2">
+          <div className="col-md-3">
           <input type="email" className="form-control" name="email" onChange={this.onInputChange} value={this.state.email} placeholder="Email"/>
           </div>
-          <div className="col-sm-2">
-            <input type="integer" className="form-control" name="weight" onChange={this.onInputChange} value={this.state.weight} placeholder="Current Wieght"/>
+          <div className="col-md-3">
+            <input type="integer" className="form-control" name="weight" onChange={this.onInputChange} value={this.state.weight} placeholder= "Wieght (lbs)"/>
           </div>
-          <span className="input-group-btn">
-            <button className="btn btn-primary" type="submit">Get Plan!</button>
-          </span>
-
+          <div className="col-md-3">
+            <button className="btn btn-primary" type="submit">Get My Plan!</button>
+          </div>
         </div>
       </form>
     )

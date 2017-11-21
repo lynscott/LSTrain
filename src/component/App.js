@@ -6,8 +6,23 @@ import PlanList from '../containers/plans.js';
 import main from '../img/main2.png';
 import training from '../img/training2.png';
 import InfoBar from '../containers/user_info.js';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/scale.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {users:[], text: ''};
+  }
+
+  componentWillMount() {
+    fetch('/users')
+    .then(res => res.json())
+    .then(users => this.setState({ users }));
+  }
+
   render() {
     return (
     <div>
@@ -17,10 +32,12 @@ class App extends Component {
         </div>
       </div>
       <div className="container">
+        {this.state.users.map(user =>
+        <div key={user.id}>{user.username}</div>
+        )}
         <div className="jumbotron" id="mid">
           <ul className="list-unstyled">
             <li className="media">
-
               <div className="media-body">
                 <h5 className="mt-0 mb-1">Custom Training</h5>
                 At LS Fitness we believe training plans shouldn't be cookie cutter templates.
@@ -56,16 +73,14 @@ class App extends Component {
           <h1>Free 10-Day Plans</h1>
           <div className="row justify-content-center">
             <div className="col-lg-6">
-              <TypeDetail />
-              <TypeList />
-            </div>
-            <br></br>
-            <div className="col-lg-6">
               <PlanDetail />
               <PlanList />
+              <TypeDetail />
+              <TypeList />
+              <InfoBar/>
             </div>
         </div>
-          <InfoBar/>
+           <Alert stack={{limit: 3}} />
         </div>
         <h1>Premium Programs</h1>
       </div>

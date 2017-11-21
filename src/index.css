@@ -31,6 +31,10 @@ h1 {
   margin-bottom: 0px;
 }
 
+#id {
+  text-align: center;
+}
+
 .col-lg-6{
   padding-bottom: 10%;
 }
