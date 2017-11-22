@@ -33,12 +33,13 @@ class InfoBar extends Component {
         effect: 'scale',
       });
     }
-    if (this.props.type.type==='Ectomorph') {
-      return Alert.success( <p>{event.target.name.value} is an Ectomorph </p>, {
-            position: 'bottom',
-            effect: 'scale',
-          });
-    }
+    this.props.sendEmail(event.target.name.value,
+                         event.target.email.value,
+                         this.props.plan.name)
+                         return Alert.success(<h3>Plan sent!</h3>, {
+                           position: 'bottom',
+                           effect: 'scale',
+                         })
   }
 
   render() {

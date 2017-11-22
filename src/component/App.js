@@ -15,12 +15,25 @@ class App extends Component {
     super(props);
 
     this.state = {users:[], text: ''};
+    this.sendEmail = this.sendEmail.bind(this);
   }
+
 
   componentWillMount() {
     fetch('/users')
     .then(res => res.json())
     .then(users => this.setState({ users }));
+  }
+
+  sendEmail(name, email, text) {
+    fetch('/email', {
+      method: 'post',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify({name:name, email:email, text:text})
+    })
+    .then(res => res.json())
   }
 
   render() {
@@ -77,7 +90,7 @@ class App extends Component {
               <PlanList />
               <TypeDetail />
               <TypeList />
-              <InfoBar/>
+              <InfoBar sendEmail={this.sendEmail} />
             </div>
         </div>
            <Alert stack={{limit: 3}} />
