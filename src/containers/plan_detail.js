@@ -5,11 +5,13 @@ class PlanDetail extends Component {
   renderGoal() {
     return (
     <div>
-      <figure className="figure">
-        <img src={this.props.plan.img} className="figure-img img-fluid rounded" alt="bench"/>
-        <figcaption className="figure-caption"><strong>{this.props.plan.name}</strong></figcaption>
-        <figcaption className="figure-caption"><strong>{this.props.plan.info}</strong></figcaption>
-      </figure>
+      <div className="card">
+        <img className="card-img-top" src={this.props.plan.img} alt="bench" />
+        <div className="card-body">
+          <h4 className="card-title">{this.props.plan.name}</h4>
+          <p className="card-text">{this.props.plan.info}</p>
+        </div>
+      </div>
       <div>
       {this.props.plan.plan}
     </div>

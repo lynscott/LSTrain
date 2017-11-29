@@ -45,9 +45,6 @@ class App extends Component {
         </div>
       </div>
       <div className="container">
-        {this.state.users.map(user =>
-        <div key={user.id}>{user.username}</div>
-        )}
         <div className="jumbotron" id="mid">
           <ul className="list-unstyled">
             <li className="media">

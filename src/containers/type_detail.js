@@ -5,11 +5,13 @@ class TypeDetail extends Component {
   renderType() {
     return (
       <div>
-      <figure className="figure">
-        <img src="http://www.fitnessandpower.com/wp-content/uploads/2016/08/body-type.jpg" className="figure-img img-fluid rounded" alt="bench"/>
-        <figcaption className="figure-caption"><strong>{this.props.type.type}</strong></figcaption>
-        <figcaption className="figure-caption"><strong>{this.props.type.info}</strong></figcaption>
-      </figure>
+      <div className="card">
+        <img className="card-img-top" src="http://www.fitnessandpower.com/wp-content/uploads/2016/08/body-type.jpg" alt="bench" />
+        <div className="card-body">
+          <h4 className="card-title">{this.props.type.type}</h4>
+          <p className="card-text">{this.props.type.info}</p>
+        </div>
+      </div>
     </div>
     )
   }
