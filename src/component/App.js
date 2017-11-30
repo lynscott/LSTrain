@@ -6,6 +6,8 @@ import PlanList from '../containers/plans.js';
 import main from '../img/main2.png';
 import training from '../img/training2.png';
 import InfoBar from '../containers/user_info.js';
+import ClientRoll from './Clients.js';
+import ContactForm from './ContactForm.js';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/scale.css';
@@ -46,31 +48,8 @@ class App extends Component {
       </div>
       <div className="container">
         <div className="jumbotron" id="mid">
-          <ul className="list-unstyled">
-            <li className="media">
-              <div className="media-body">
-                <h5 className="mt-0 mb-1">Custom Training</h5>
-                At LS Fitness we believe training plans shouldn't be cookie cutter templates.
-                Download a custom training plan based on your goal, body type, and current stats.
-              </div>
-            </li>
-            <li className="media my-4">
-
-              <div className="media-body">
-                <h5 className="mt-0 mb-1">Personalized Nutrtiion</h5>
-                Let us guide you to your goal with specific meal plans that match your training programs.
-              </div>
-            </li>
-            <li className="media">
-
-              <div className="media-body">
-                <h5 className="mt-0 mb-1">Lifestyle</h5>
-                More than a fading fad, let us help you cultivate a lifestyle with our online training system,
-                including weekly check-ins and messaging.
-              </div>
-            </li>
-          </ul>
-
+        <ContactForm />
+        <ClientRoll />
         </div>
       </div>
       <div className="jumbotron jumbotron-fluid" id="training">

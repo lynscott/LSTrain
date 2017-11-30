@@ -4,9 +4,6 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-.jumbotron {
-
-}
 
 h1 {
   text-align: center;
@@ -14,6 +11,7 @@ h1 {
 
 .container {
   text-align: center;
+
 }
 
 #header {
@@ -41,4 +39,9 @@ h1 {
 
 .col-lg-6{
   padding-bottom: 10%;
+}
+
+#client {
+  color: black;
+  background-color: white;
 }
