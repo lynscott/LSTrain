@@ -48,8 +48,18 @@ class App extends Component {
       </div>
       <div className="container">
         <div className="jumbotron" id="mid">
+          <h2>
+            Question? Comment? Shoot me a message!
+          </h2>
+        <br />
         <ContactForm />
+        <br />
         <ClientRoll />
+        <br />
+          <h3>
+            Check out some of these client transformations!<br />
+             Will you be next?
+          </h3>
         </div>
       </div>
       <div className="jumbotron jumbotron-fluid" id="training">

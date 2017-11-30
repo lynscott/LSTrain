@@ -71,7 +71,7 @@ class ClientRoll extends Component {
   render() {
     return (
       <div>
-        {/* {this.info()} */}
+
         <div className="row justify-content-center">
           <div className="col-sm-4">
             {this.clientSection()}
