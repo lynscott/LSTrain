@@ -40,8 +40,8 @@ class App extends Component {
 
   render() {
     return (
-    <div>
-      <div className="jumbotron jumbotron-fluid" id="header">
+    <div className="bg-secondary text-primary">
+      <div className="jumbotron jumbotron-fluid bg-secondary" id="header">
         <div className="container">
          <img src={main} className="img-fluid" alt="header"/>
         </div>
@@ -62,14 +62,20 @@ class App extends Component {
           </h3>
         </div>
       </div>
-      <div className="jumbotron jumbotron-fluid" id="training">
+      <div className="jumbotron jumbotron-fluid bg-secondary" id="training">
         <div className="container">
          <img src={training} className="img-fluid" alt="training"/>
         </div>
       </div>
       <div className="container">
-        <div className="jumbotron">
-          <h1>Free 10-Day Plans</h1>
+        <div className="jumbotron" id="mid">
+          <h1 className="display-3">Free Plans!<br />
+          </h1>
+          <h2>
+            <small className="text-muted">
+              Beginner level workout guides for those new to fitness.
+            </small>
+          </h2>
           <div className="row justify-content-center">
             <div className="col-lg-6">
               <PlanDetail />
@@ -81,7 +87,15 @@ class App extends Component {
         </div>
            <Alert stack={{limit: 3}} />
         </div>
-        <h1>Premium Programs</h1>
+        <div className="jumbotron">
+          <h1 className="display-3">Premium Programs<br />
+          </h1>
+          <h2>
+            <small className="text-muted">
+              Designed to take you to the next level.
+            </small>
+          </h2>
+        </div>
       </div>
     </div>
     );
