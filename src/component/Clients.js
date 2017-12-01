@@ -14,7 +14,7 @@ class ClientRoll extends Component {
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img className="d-block w-100 img-fluid" src={pic_1} alt="First slide" />
+            <img className="d-block w-100 img-fluid rounded" src={pic_1} alt="First slide" />
             <div className="carousel-caption d-none d-md-block">
              <h3>Adam F.</h3>
              <h4><em>Down 70 lbs!</em></h4>
@@ -22,7 +22,7 @@ class ClientRoll extends Component {
             </div>
           </div>
           <div className="carousel-item" id="client">
-            <img className="d-block w-100" src={pic_2}  alt="Second slide" />
+            <img className="d-block w-100 img-fluid rounded" src={pic_2}  alt="Second slide" />
             <div className="carousel-caption d-none d-md-block">
              <h3>David S.</h3>
              <h4><em>Down 100 lbs!</em></h4>
@@ -30,7 +30,7 @@ class ClientRoll extends Component {
             </div>
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={pic_3} alt="Third slide" />
+            <img className="d-block w-100 img-fluid rounded" src={pic_3} alt="Third slide" />
             <div className="carousel-caption d-none d-md-block">
              <h3>David S.</h3>
              <h4><em>+ 30lbs!</em></h4>

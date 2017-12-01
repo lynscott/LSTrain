@@ -5,7 +5,7 @@ class ContactForm extends Component {
   renderField(field) {
     const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
     return (
-      <div className="form-group col-md-3">
+      <div className="form-group col-md-2">
         <input
           placeholder={field.placeholder}
           className={className}
@@ -23,7 +23,7 @@ class ContactForm extends Component {
   renderSelectField(field) {
     const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
     return (
-      <div className="form-group col-md-3">
+      <div className="form-group col-md-2">
         <select
           placeholder={field.placeholder}
           className={className}
@@ -47,7 +47,7 @@ class ContactForm extends Component {
   renderTextField(field) {
     const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
     return (
-      <div className="form-group col-md-6">
+      <div className="form-group col-md-4">
         <textarea
           placeholder={field.placeholder}
           className={className}
@@ -97,6 +97,8 @@ class ContactForm extends Component {
             type="text"
             component={this.renderSelectField}
           />
+        </div>
+        <div className="form-row justify-content-center">
           <Field
             placeholder="Type Your Message Here!"
             name="message"

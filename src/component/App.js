@@ -8,6 +8,7 @@ import training from '../img/training2.png';
 import InfoBar from '../containers/user_info.js';
 import ClientRoll from './Clients.js';
 import ContactForm from './ContactForm.js';
+import PremiumPlans from './PremiumPlans.js';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/scale.css';
@@ -42,11 +43,11 @@ class App extends Component {
     return (
     <div className="bg-secondary text-primary">
       <div className="jumbotron jumbotron-fluid bg-secondary" id="header">
-        <div className="container">
+        <div className="container-fluid">
          <img src={main} className="img-fluid" alt="header"/>
         </div>
       </div>
-      <div className="container">
+      <div className="container-fluid">
         <div className="jumbotron" id="mid">
           <h2>
             Question? Comment? Shoot me a message!
@@ -63,11 +64,11 @@ class App extends Component {
         </div>
       </div>
       <div className="jumbotron jumbotron-fluid bg-secondary" id="training">
-        <div className="container">
+        <div className="container-fluid">
          <img src={training} className="img-fluid" alt="training"/>
         </div>
       </div>
-      <div className="container">
+      <div className="container-fluid">
         <div className="jumbotron" id="mid">
           <h1 className="display-3">Free Plans!<br />
           </h1>
@@ -84,10 +85,10 @@ class App extends Component {
               <TypeList />
               <InfoBar sendEmail={this.sendEmail} />
             </div>
-        </div>
-           <Alert stack={{limit: 3}} />
-        </div>
-        <div className="jumbotron">
+               <Alert stack={{limit: 3}} />
+            </div>
+            </div>
+        <div className="jumbotron" id="mid">
           <h1 className="display-3">Premium Programs<br />
           </h1>
           <h2>
@@ -95,6 +96,7 @@ class App extends Component {
               Designed to take you to the next level.
             </small>
           </h2>
+          <PremiumPlans />
         </div>
       </div>
     </div>
