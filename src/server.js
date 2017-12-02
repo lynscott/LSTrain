@@ -30,16 +30,16 @@ app.post('/email', function (req, res) {
   })
   console.log(email, text, name);
   return server.send({
-     text:    text,
+     text:    req.body.text,
      from:    "LS Fitness <lynscott@lsphysique.com>",
-     to:      email,
+     to:      req.body.email,
      bcc:      "me <lynscott@lsphysique.com>",
-     subject: "Testing Emailjs - " + name
+     subject: "Testing Emailjs - " + req.body.name
   }, function(err, message) { console.log(err || message); });
 });
 
 
-app.get('/ping', function (req, res) {
+app.get('/contact', function (req, res) {
  return res.send('pong');
 });
 

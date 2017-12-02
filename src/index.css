@@ -4,6 +4,24 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
+nav {
+  justify-content: space-between;
+  align-items: center;
+  /*animation: 1s fadein 0.5s forwards;*/
+  font-size: 19px;
+  /*opacity: 0;*/
+  background-color: black;
+}
+
+.nav-item {
+  margin: 0 15px;
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
 
 h1 {
   text-align: center;

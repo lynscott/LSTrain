@@ -9,6 +9,8 @@ import InfoBar from '../containers/user_info.js';
 import ClientRoll from './Clients.js';
 import ContactForm from './ContactForm.js';
 import PremiumPlans from './PremiumPlans.js';
+import Footer from './Footer.js';
+import Nav from './Nav';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/scale.css';
@@ -42,6 +44,7 @@ class App extends Component {
   render() {
     return (
     <div className="bg-secondary text-primary">
+      <Nav />
       <div className="jumbotron jumbotron-fluid bg-secondary" id="header">
         <div className="container-fluid">
          <img src={main} className="img-fluid" alt="header"/>
@@ -98,7 +101,9 @@ class App extends Component {
           </h2>
           <PremiumPlans />
         </div>
+
       </div>
+      <Footer />
     </div>
     );
   }
