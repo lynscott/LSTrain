@@ -73,7 +73,7 @@ class ClientRoll extends Component {
       <div>
 
         <div className="row justify-content-center">
-          <div className="col-sm-4">
+          <div className="col-sm-3">
             {this.clientSection()}
           </div>
         </div>

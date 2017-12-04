@@ -14,7 +14,11 @@ nav {
 }
 
 .nav-item {
-  margin: 0 15px;
+
+}
+
+.navbar-nav {
+  align-items: right;
 }
 
 @keyframes fadein {

@@ -47,7 +47,7 @@ class ContactForm extends Component {
   renderTextField(field) {
     const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
     return (
-      <div className="form-group col-md-4">
+      <div className="form-group col-md-3">
         <textarea
           placeholder={field.placeholder}
           className={className}
