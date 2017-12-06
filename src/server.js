@@ -2,12 +2,21 @@ const email = require('emailjs');
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
-const app = express();
 const db = require('../models');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const routes = require('./routes/index');
+const stripe = require("stripe")("sk_test_bll6DpA5V46aKqGVGImZiEoU");
 
+const app = express();
+
+app.use(logger('dev'));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 const server = email.server.connect({
    user:    "lynscott@lsphysique.com",
@@ -39,18 +48,18 @@ app.post('/email', function (req, res) {
 });
 
 
-app.get('/contact', function (req, res) {
- return res.send('pong');
-});
-
-app.get('/users', function (req, res) {
- return res.json([{
-      	id: 1,
-      	username: "samsepi0l"
-      }, {
-      	id: 2,
-      	username: "D0loresH4ze"
-      }]);
+app.post('/pay', function (req, res) {
+  var token = req.body.stripeToken;
+  var mytoke = req.body.stripeToken;
+  return stripe.charges.create({
+    amount: 2900,
+    currency: "usd",
+    description: "Strength Plan Charge",
+    source: token,
+  }, function(err, charge) {
+    res.status(200).send('200')
+    // asynchronously called
+  });
 });
 
 

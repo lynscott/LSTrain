@@ -24,11 +24,11 @@ class App extends Component {
   }
 
 
-  componentWillMount() {
-    fetch('/users')
-    .then(res => res.json())
-    .then(users => this.setState({ users }));
-  }
+  // componentWillMount() {
+  //   fetch('/users')
+  //   .then(res => res.json())
+  //   .then(users => this.setState({ users }));
+  // }
 
   sendEmail(name, email, text) {
     fetch('/email', {
@@ -60,6 +60,7 @@ class App extends Component {
         <br />
         <ClientRoll />
         <br />
+
           <h3>
             Check out some of these client transformations!<br />
              Will you be next?
@@ -99,7 +100,7 @@ class App extends Component {
               Designed to take you to the next level.
             </small>
           </h2>
-          <PremiumPlans />
+            <PremiumPlans />
         </div>
 
       </div>

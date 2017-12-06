@@ -9,6 +9,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import rootReducer from './reducers/index.js';
+import {StripeProvider} from 'react-stripe-elements';
 
 const store = applyMiddleware()(createStore);
 
@@ -16,11 +17,13 @@ ReactDOM.render(
   <Provider store={store(rootReducer)}>
     <BrowserRouter>
       <div>
-        <Switch>
-          <Route path="/about" component={About} />
-          <Route path="/training" component={OnlineTraining} />
-          <Route path="/" component={App} />
-        </Switch>
+        <StripeProvider apiKey="pk_test_0MmGCS4ik8k7bj9vK53ziyj9">
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route path="/training" component={OnlineTraining} />
+            <Route path="/" component={App} />
+          </Switch>
+        </StripeProvider>
       </div>
     </BrowserRouter>
   </Provider>,
