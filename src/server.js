@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'build')));
 
 const server = email.server.connect({
-   user:    "lynscott@lsphysique.com",
-   password:" a61991ca",
+   user:    "YOUR_EMAIL_ADDRESS",
+   password:" YOUR_PASSWORD",
    host:    "smtp.gmail.com",
    port:    587,
    tls:     true
