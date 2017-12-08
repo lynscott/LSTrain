@@ -65,6 +65,18 @@ class ContactForm extends Component {
 
   onSubmit(values) {
     console.log(values);
+    fetch('/contactform', {
+      method: 'post',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify({name:values.name,
+                            message:values.message,
+                            subject:values.subject,
+                            email:values.email,
+                            })
+    })
+    .then(res => res.json())
   }
 
   render() {
@@ -74,14 +86,8 @@ class ContactForm extends Component {
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div className="form-row justify-content-center">
           <Field
-            placeholder="First Name"
-            name="first"
-            type="text"
-            component={this.renderField}
-          />
-          <Field
-            placeholder="Last Name"
-            name="last"
+            placeholder="Name"
+            name="name"
             type="text"
             component={this.renderField}
           />
@@ -116,11 +122,8 @@ class ContactForm extends Component {
 function validate(values) {
 
   const errors = {};
-  if (!values.first) {
-    errors.first = "Oops! Forgot your First Name.";
-  }
-  if (!values.last) {
-    errors.last = <strong>Oops! Forgot your Last Name.</strong>;
+  if (!values.name) {
+    errors.last = <strong>Oops! Forgot your Name.</strong>;
   }
   if (!values.email) {
     errors.email = "Oops! Forgot your Email.";
