@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import strength from '../img/strength.jpg';
+import pic from '../img/tone.jpg';
 import StoreCheckout from './StoreCheckout';
 
 class TonePlan extends Component {
@@ -7,7 +7,7 @@ class TonePlan extends Component {
     return (
       <div className="col-md-3">
         <figure className="figure">
-          <img src={strength} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
+          <img src={pic} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
           <figcaption className="figure-caption">A 30 Day Tone Program.</figcaption>
 
         </figure>
@@ -30,13 +30,13 @@ class TonePlan extends Component {
                 <div className="col-sm-4">
                     <h4>$29</h4>
                     <hr></hr>
-                  <img src={strength} className="figure-img img-fluid rounded" alt=" Plan A" />
+                  <img src={pic} className="figure-img img-fluid rounded" alt=" Plan A" />
 
               </div>
               <div className="row justify-content-center">
                 <div className="col-sm-10">
-                  <strong><p className="bg-dark">10 Week premium plan designed to take to to your strongest, meanest physique to date.
-                  Includes diet and Cardio structure.</p></strong>
+                  <strong><p>10 Week premium plan designed to lift that butt and tighten
+                    that core with every essential item in between.</p></strong>
                 </div>
               </div>
             </div>

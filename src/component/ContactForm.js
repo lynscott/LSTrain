@@ -25,16 +25,17 @@ class ContactForm extends Component {
     return (
       <div className="form-group col-md-2">
         <select
+          value="none"
           placeholder={field.placeholder}
           className={className}
           type={field.type}
           {...field.input}
         >
-          <option selected value="value1">Select An Option</option>
-          <option>Fat Loss</option>
-          <option>Mass Gain</option>
-          <option>Online Training</option>
-          <option>Just Saying Hi!</option>
+          <option value="none">Select An Option</option>
+          <option value="Fat Loss">Fat Loss</option>
+          <option value="Mass Gain">Mass Gain</option>
+          <option value="Online Training">Online Training</option>
+          <option value="Saying Hi!">Just Saying Hi!</option>
         </select>
         <div className="invalid-feedback">
           {field.meta.touched ? field.meta.error: ''}
@@ -58,7 +59,6 @@ class ContactForm extends Component {
         <div className="invalid-feedback">
           {field.meta.touched ? field.meta.error: ''}
         </div>
-
       </div>
     );
   }
@@ -113,6 +113,7 @@ class ContactForm extends Component {
           />
         </div>
         <button type="submit" className="btn btn-outline-primary">Submit</button>
+        <hr id="formHR" />
       </form>
     );
   }
@@ -128,7 +129,7 @@ function validate(values) {
   if (!values.email) {
     errors.email = "Oops! Forgot your Email.";
   }
-  if (values.subject ==="value1") {
+  if (values.subject ==="none") {
     errors.subject = "Oops! Please choose an option.";
   }
   if (!values.message) {

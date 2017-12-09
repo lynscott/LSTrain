@@ -4,6 +4,10 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
+#formHR {
+  width: 50%;
+}
+
 nav {
   justify-content: space-between;
   align-items: center;
@@ -11,10 +15,13 @@ nav {
   font-size: 19px;
   /*opacity: 0;*/
   background-color: black;
+  padding: 0;
 }
 
-.nav-item {
-
+iframe {
+  width: 80%;
+  border: 0;
+  overflow: hidden;
 }
 
 .navbar-nav {
@@ -85,8 +92,26 @@ h1 {
 
 body, html {
   background-color: #f6f9fc;
-  font-size: 18px;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
 }
 
 h2 {

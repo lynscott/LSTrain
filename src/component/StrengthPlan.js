@@ -13,10 +13,10 @@ class StrengthPlan extends Component {
         </figure>
         <button
           data-toggle="modal"
-          data-target="#exampleModal"
+          data-target="#StrengthModal"
           data-whatever="@PlanA"
           className="btn btn-primary">Buy Plan</button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade" id="StrengthModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header justify-content-center">
@@ -35,7 +35,7 @@ class StrengthPlan extends Component {
               </div>
               <div className="row justify-content-center">
                 <div className="col-sm-10">
-                  <strong><p className="bg-dark">10 Week premium plan designed to take to to your strongest, meanest physique to date.
+                  <strong><p>10 Week premium plan designed to take to to your strongest, meanest physique to date.
                   Includes diet and Cardio structure.</p></strong>
                 </div>
               </div>

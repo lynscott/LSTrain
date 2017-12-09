@@ -3,8 +3,8 @@ import TypeList from '../containers/types.js';
 import TypeDetail from '../containers/type_detail';
 import PlanDetail from '../containers/plan_detail';
 import PlanList from '../containers/plans.js';
-import main from '../img/main2.png';
-import training from '../img/training2.png';
+import main from '../img/mainV3.png';
+import training from '../img/trainingV3.png';
 import InfoBar from '../containers/user_info.js';
 import ClientRoll from './Clients.js';
 import ContactForm from './ContactForm.js';
@@ -23,13 +23,6 @@ class App extends Component {
     this.sendEmail = this.sendEmail.bind(this);
   }
 
-
-  // componentWillMount() {
-  //   fetch('/users')
-  //   .then(res => res.json())
-  //   .then(users => this.setState({ users }));
-  // }
-
   sendEmail(name, email, text) {
     fetch('/email', {
       method: 'post',
@@ -44,7 +37,7 @@ class App extends Component {
   render() {
     return (
     <div className="bg-secondary text-primary">
-      <Nav />
+      <Nav class="navbar sticky-top" />
       <div className="jumbotron jumbotron-fluid bg-secondary" id="header">
         <div className="container-fluid">
          <img src={main} className="img-fluid" alt="header"/>
@@ -60,11 +53,10 @@ class App extends Component {
         <br />
         <ClientRoll />
         <br />
-
-          <h3>
+          <h5>
             Check out some of these client transformations!<br />
              Will you be next?
-          </h3>
+          </h5>
         </div>
       </div>
       <div className="jumbotron jumbotron-fluid bg-secondary" id="training">
@@ -74,7 +66,7 @@ class App extends Component {
       </div>
       <div className="container-fluid">
         <div className="jumbotron" id="mid">
-          <h1 className="display-3">Free Plans!<br />
+          <h1 className="display-3">Free Programs!<br />
           </h1>
           <h2>
             <small className="text-muted">
@@ -82,29 +74,28 @@ class App extends Component {
             </small>
           </h2>
           <div className="row justify-content-center">
-            <div className="col-lg-6">
+            <div className="col-lg-8">
               <PlanDetail />
               <PlanList />
               <TypeDetail />
               <TypeList />
               <InfoBar sendEmail={this.sendEmail} />
+              <br />
+              <hr />
+              <h1 className="display-3">Premium Programs<br />
+              </h1>
+              <h2>
+                <small className="text-muted">
+                  Designed to take you to the next level.
+                </small>
+              </h2>
+                <PremiumPlans />
             </div>
                <Alert stack={{limit: 3}} />
-            </div>
-            </div>
-        <div className="jumbotron" id="mid">
-          <h1 className="display-3">Premium Programs<br />
-          </h1>
-          <h2>
-            <small className="text-muted">
-              Designed to take you to the next level.
-            </small>
-          </h2>
-            <PremiumPlans />
+          </div>
         </div>
-
+        <Footer />
       </div>
-      <Footer />
     </div>
     );
   }

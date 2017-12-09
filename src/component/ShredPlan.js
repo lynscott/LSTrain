@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import strength from '../img/strength.jpg';
+import pic from '../img/Shred.jpg';
 import StoreCheckout from './StoreCheckout';
 
 class ShredPlan extends Component {
@@ -7,20 +7,20 @@ class ShredPlan extends Component {
     return (
       <div className="col-md-3">
         <figure className="figure">
-          <img src={strength} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
+          <img src={pic} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
           <figcaption className="figure-caption">A 30 Day Fat Loss Program.</figcaption>
 
         </figure>
         <button
           data-toggle="modal"
-          data-target="#exampleModal"
+          data-target="#ShredModal"
           data-whatever="@PlanA"
           className="btn btn-primary">Buy Plan</button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade" id="ShredModal" tabIndex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header justify-content-center">
-              <h5 className="modal-title" id="exampleModalLabel">Premium Plans</h5>
+              <h5 className="modal-title" id="ModalLabel">Premium Plans</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -30,13 +30,12 @@ class ShredPlan extends Component {
                 <div className="col-sm-4">
                     <h4>$29</h4>
                     <hr></hr>
-                  <img src={strength} className="figure-img img-fluid rounded" alt=" Plan A" />
+                  <img src={pic} className="figure-img img-fluid rounded" alt=" Plan A" />
 
               </div>
               <div className="row justify-content-center">
                 <div className="col-sm-10">
-                  <strong><p className="bg-dark">10 Week premium plan designed to take to to your strongest, meanest physique to date.
-                  Includes diet and Cardio structure.</p></strong>
+                  <strong><p>10 Week premium plan designed to target those stubborn fat areas and lose wieght.</p></strong>
                 </div>
               </div>
             </div>
