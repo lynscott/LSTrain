@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "emailjs": "^1.0.12",
@@ -24,6 +25,7 @@
     "react-stripe-elements": "^1.2.1",
     "redux": "^3.7.2",
     "redux-form": "^7.2.0",
+    "redux-promise": "^0.5.3",
     "stripe": "^5.4.0",
     "unirest": "^0.5.1"
   },

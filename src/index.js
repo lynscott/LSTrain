@@ -10,8 +10,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import rootReducer from './reducers/index.js';
 import {StripeProvider} from 'react-stripe-elements';
+import promise from 'redux-promise';
 
-const store = applyMiddleware()(createStore);
+const store = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={store(rootReducer)}>

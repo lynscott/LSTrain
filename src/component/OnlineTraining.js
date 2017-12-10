@@ -15,11 +15,11 @@ class OnlineTraining extends Component {
               <div className="col-md-3">
 
                 <h2>Online Training Includes:</h2>
-                <ul class="list-group">
-                  <li class="list-group-item">Supplement recomendations for maximum results</li>
-                  <li class="list-group-item">Weekly check-ins via Skype or phone</li>
-                  <li class="list-group-item">Custom training program synced to the LS Fitness Mobile App</li>
-                  <li class="list-group-item">Custom nutrition plan with healthy food options and recipes!</li>
+                <ul className="list-group">
+                  <li className="list-group-item">Supplement recomendations for maximum results</li>
+                  <li className="list-group-item">Weekly check-ins via Skype or phone</li>
+                  <li className="list-group-item">Custom training program synced to the LS Fitness Mobile App</li>
+                  <li className="list-group-item">Custom nutrition plan with healthy food options and recipes!</li>
                 </ul>
                 <ol>
                   <li>Option 1 $50</li>

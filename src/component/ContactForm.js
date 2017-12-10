@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Field, reduxForm} from 'redux-form';
+import { Field, reset, reduxForm} from 'redux-form';
+import { connect } from 'react-redux';
+import { contactForm } from '../actions';
+import Alert from 'react-s-alert';
+
+const afterSubmit = (result, dispatch) =>
+  dispatch(reset('ContactForm'));
 
 class ContactForm extends Component {
   renderField(field) {
@@ -64,19 +70,10 @@ class ContactForm extends Component {
   }
 
   onSubmit(values) {
-    console.log(values);
-    fetch('/contactform', {
-      method: 'post',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-      body: JSON.stringify({name:values.name,
-                            message:values.message,
-                            subject:values.subject,
-                            email:values.email,
-                            })
-    })
-    .then(res => res.json())
+    this.props.contactForm(values).then( () => Alert.success(<h3>Email sent!</h3>, {
+      position: 'bottom',
+      effect: 'scale',
+    }));
   }
 
   render() {
@@ -142,5 +139,8 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'ContactForm'
-})(ContactForm);
+  form: 'ContactForm',
+  onSubmitSuccess: afterSubmit,
+})(
+  connect(null, { contactForm })(ContactForm)
+);

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Field, reduxForm} from 'redux-form';
+import { Field, reset, reduxForm} from 'redux-form';
+import { connect } from 'react-redux';
+import { trainingForm } from '../actions';
+import Alert from 'react-s-alert';
+
+
+const afterSubmit = (result, dispatch) =>
+  dispatch(reset('TrainingForm'));
 
 
 class TrainingForm extends Component {
@@ -26,14 +33,15 @@ class TrainingForm extends Component {
     return (
       <div className="form-group col-md-4">
         <select
+          value="Gender"
           placeholder={field.placeholder}
           className={className}
           type={field.type}
           {...field.input}
         >
-          <option selected value="value1">Gender</option>
-          <option>Male </option>
-          <option>Female</option>
+          <option value="Gender">Gender</option>
+          <option value="Male">Male </option>
+          <option value="Female">Female</option>
         </select>
         <div className="invalid-feedback">
           {field.meta.touched ? field.meta.error: ''}
@@ -64,23 +72,28 @@ class TrainingForm extends Component {
 
   onSubmit(values) {
     console.log(values);
-    fetch('/trainingform', {
-      method: 'post',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-      body: JSON.stringify({name:values.first + values.last,
-                            height:values.height,
-                            weight:values.weight,
-                            email:values.email,
-                            age: values.age,
-                            gender:values.gender,
-                            phone:values.phone,
-                            body_fat:values.body_fat,
-
-                            })
-    })
-    .then(res => res.json())
+    this.props.trainingForm(values).then( () => Alert.success(
+      <h3>Training form sent! We will reach out to you shortly!</h3>, {
+      position: 'bottom',
+      effect: 'scale',
+    }));
+    // fetch('/trainingform', {
+    //   method: 'post',
+    //   headers: new Headers({
+    //     'Content-Type': 'application/json',
+    //   }),
+    //   body: JSON.stringify({name:values.first + values.last,
+    //                         height:values.height,
+    //                         weight:values.weight,
+    //                         email:values.email,
+    //                         age: values.age,
+    //                         gender:values.gender,
+    //                         phone:values.phone,
+    //                         body_fat:values.body_fat,
+    //
+    //                         })
+    // })
+    // .then(res => res.json()).then(() => {this.props.history.push('/')})
   }
 
   render() {
@@ -159,7 +172,7 @@ class TrainingForm extends Component {
           />
           <Field
             placeholder="Any foods you can't/won't eat? What is your current diet like?"
-            name="goals"
+            name="diet"
             type="textarea"
             component={this.renderTextField}
           />
@@ -171,7 +184,7 @@ class TrainingForm extends Component {
           />
           <Field
             placeholder="When is a specific time and date Lyn can call you to start your program?"
-            name="motivation"
+            name="call_info"
             type="textarea"
             component={this.renderTextField}
           />
@@ -186,16 +199,16 @@ class TrainingForm extends Component {
   function validate(values) {
 
   const errors = {};
-  if (!values.name) {
+  if (!values.first) {
     errors.last = <strong>Oops! Forgot your Name.</strong>;
   }
   if (!values.email) {
     errors.email = "Oops! Forgot your Email.";
   }
-  if (values.subject ==="value1") {
+  if (values.gender ==="Gender") {
     errors.subject = "Oops! Please choose an option.";
   }
-  if (!values.message) {
+  if (!values.last) {
     errors.message = "Oops! Your message needs a message!";
   }
 
@@ -203,7 +216,10 @@ class TrainingForm extends Component {
   return errors;
   }
 
-  export default reduxForm({
+export default reduxForm({
   validate,
-  form: 'TrainingForm'
-})(TrainingForm);
+  form: 'TrainingForm',
+  onSubmitSuccess: afterSubmit,
+})(
+  connect(null, { trainingForm })(TrainingForm)
+);

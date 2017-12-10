@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {selectPlan} from '../actions/plans';
+import {selectPlan} from '../actions/index';
 
 class PlanList extends Component {
   renderPlans() {
