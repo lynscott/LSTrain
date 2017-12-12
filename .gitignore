@@ -5,6 +5,7 @@
 /src/img/
 /src/config.json
 /src/server.js
+dev.js
 
 # testing
 /coverage

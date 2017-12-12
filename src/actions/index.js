@@ -3,6 +3,7 @@ export const TYPE_SELECTED = "type_selected";
 export const PLAN_SELECTED = "plan_selected";
 export const CONTACT = "contact";
 export const TRAINING_FORM = "training_form";
+export const FETCH_USER = "fetch_user";
 
 export function selectType(type) {
   return {
@@ -37,3 +38,10 @@ export function trainingForm(values, callback) {
     payload: request
   };
 }
+
+
+export const fetchUser = () => async dispatch => {
+    const res = await axios.get('/api/logged_user');
+
+    dispatch({ type:FETCH_USER, payload: res.data });
+  };

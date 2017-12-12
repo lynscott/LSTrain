@@ -15,17 +15,17 @@ class OnlineTraining extends Component {
               <div className="col-md-3">
 
                 <h2>Online Training Includes:</h2>
-                <ul className="list-group">
+                <ul className="list-unstyled">
                   <li className="list-group-item">Supplement recomendations for maximum results</li>
                   <li className="list-group-item">Weekly check-ins via Skype or phone</li>
                   <li className="list-group-item">Custom training program synced to the LS Fitness Mobile App</li>
                   <li className="list-group-item">Custom nutrition plan with healthy food options and recipes!</li>
                 </ul>
-                <ol>
-                  <li>Option 1 $50</li>
-                  <li>Option 2 $100</li>
-                  <li>Option 3 $200</li>
-                </ol>
+                <ul className="list-unstyled">
+                  <li><h3><span className="badge badge-primary">Fitness Plan: $100</span></h3></li>
+                  <li><h3><span className="badge badge-success">LifeStyle Plan: $200</span></h3></li>
+                  <li><h3><span className="badge badge-warning">Athlete Plan $300</span></h3></li>
+                </ul>
               </div>
               <div className="col-md-8">
                 <img src={img} className="img-fluid rounded" alt="Online Training" />

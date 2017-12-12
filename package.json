@@ -5,13 +5,19 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
     "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
     "emailjs": "^1.0.12",
     "express": "^4.16.2",
+    "material-ui": "^0.20.0",
     "mjml": "^3.3.5",
     "mongoose": "^4.13.5",
     "morgan": "^1.9.0",
+    "nodemailer": "^4.4.1",
     "nodemon": "^1.12.1",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "react": "^16.0.0",
     "react-alertify-js": "0.0.1",
     "react-dom": "^16.0.0",
@@ -26,14 +32,27 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.0",
     "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
     "stripe": "^5.4.0",
     "unirest": "^0.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": {
+    "/auth/google": {
+      "target": "http://localhost:8080"
+    },
+    "/pay/*": {
+      "target": "http://localhost:8080"
+    },
+    "/api/*": {
+      "target": "http://localhost:8080"
+    }
+  }
 }

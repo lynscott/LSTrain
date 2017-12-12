@@ -11,20 +11,24 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import rootReducer from './reducers/index.js';
 import {StripeProvider} from 'react-stripe-elements';
 import promise from 'redux-promise';
+import reduxThunk from 'redux-thunk';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-const store = applyMiddleware(promise)(createStore);
+const store = createStore(rootReducer, {}, applyMiddleware(reduxThunk, promise));
 
 ReactDOM.render(
-  <Provider store={store(rootReducer)}>
+  <Provider store={store}>
     <BrowserRouter>
       <div>
+        <MuiThemeProvider>
         <StripeProvider apiKey="pk_test_0MmGCS4ik8k7bj9vK53ziyj9">
           <Switch>
             <Route path="/about" component={About} />
             <Route path="/training" component={OnlineTraining} />
-            <Route path="/" component={App} />
+            <Route exact path="/" component={App} />
           </Switch>
         </StripeProvider>
+        </MuiThemeProvider>
       </div>
     </BrowserRouter>
   </Provider>,

@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import TypesReducer from './reducer_types';
-import ActiveType from './reducer_activetype';
-import PlansReducer from './reducer_goal';
-import ActivePlan from './reducer_activeplan';
+import TypesReducer from './typesReducer';
+import ActiveType from './activetypeReducer';
+import PlansReducer from './goalReducer';
+import ActivePlan from './activeplanReducer';
+import AuthReducer from './authReducer';
 import {reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   activeType: ActiveType,
   activePlan: ActivePlan,
   form: formReducer,
+  auth: AuthReducer,
 });
 
 export default rootReducer;

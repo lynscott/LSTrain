@@ -11,6 +11,8 @@ import ContactForm from './ContactForm.js';
 import PremiumPlans from './PremiumPlans.js';
 import Footer from './Footer.js';
 import Nav from './Nav';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/scale.css';
@@ -21,6 +23,10 @@ class App extends Component {
 
     this.state = {users:[], text: ''};
     this.sendEmail = this.sendEmail.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchUser();
   }
 
   sendEmail(name, email, text) {
@@ -74,7 +80,7 @@ class App extends Component {
             </small>
           </h2>
           <div className="row justify-content-center">
-            <div className="col-lg-8">
+            <div className="col-lg-6">
               <PlanDetail />
               <PlanList />
               <TypeDetail />
@@ -101,4 +107,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
