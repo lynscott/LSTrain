@@ -1,11 +1,18 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const planStartSchema = require('./StartPlan');
+
+const planSchema = require('./Plans');
 
 const userSchema = new Schema ({
-  goodleID: String,
+  googleID: String,
+  facebookID: String,
   name: String,
+  img: String,
   gender: String,
-  email: String
+  email: String,
+  date: Date,
+  plans: [String]
 });
 
 mongoose.model('users', userSchema);

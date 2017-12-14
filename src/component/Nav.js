@@ -7,18 +7,25 @@ class Nav extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return '';
+        return (
+          <div className="progress">
+            <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: "75%"}}></div>
+          </div>
+        );
       case false:
         return (
           <a href="/auth/google" className="nav-item nav-link active">Login with Google</a>
         );
       default:
-        return <a href="/api/logout" className="nav-item nav-link active">Logout</a>;
+        return [
+          <Link key="1" className="nav-item nav-link active" to="/dashboard" >Dashboard</Link>,
+          <a href="/api/logout"  key="2" className="nav-item nav-link">Logout</a>
+        ];
     }
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.auth)
     return (
       <div>
           <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
@@ -35,11 +42,11 @@ class Nav extends Component {
              <div className="navbar-nav">
                <Link className="nav-item nav-link " id="title" to="/about">About</Link>
                <Link className="nav-item nav-link " id="title" to="/training">Online Training</Link>
-
+               {this.renderContent()}
              </div>
              <a className="nav-item nav-link active" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/lsphysique/" ><i className="fa fa-instagram" aria-hidden="true"></i></a>
              <a className="nav-item nav-link active" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/lsphysique/" ><i className="fa fa-facebook-square" aria-hidden="true"></i></a>
-             {this.renderContent()}
+
 
             </div>
           </nav>

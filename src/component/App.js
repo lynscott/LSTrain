@@ -10,7 +10,6 @@ import ClientRoll from './Clients.js';
 import ContactForm from './ContactForm.js';
 import PremiumPlans from './PremiumPlans.js';
 import Footer from './Footer.js';
-import Nav from './Nav';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Alert from 'react-s-alert';
@@ -43,7 +42,7 @@ class App extends Component {
   render() {
     return (
     <div className="bg-secondary text-primary">
-      <Nav class="navbar sticky-top" />
+      {/* <Nav class="navbar sticky-top" /> */}
       <div className="jumbotron jumbotron-fluid bg-secondary" id="header">
         <div className="container-fluid">
          <img src={main} className="img-fluid" alt="header"/>

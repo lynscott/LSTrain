@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TrainingForm from './TrainingForm';
-import Nav from './Nav';
 import Footer from './Footer';
 import img from '../img/OT.jpg';
 
@@ -8,7 +7,6 @@ class OnlineTraining extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Nav />
         <div id="mid" className="jumbotron jumbotron-fluid">
           <div className="container">
             <div className="row justify-content-center">

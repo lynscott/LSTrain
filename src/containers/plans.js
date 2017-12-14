@@ -5,12 +5,12 @@ import {selectPlan} from '../actions/index';
 
 class PlanList extends Component {
   renderPlans() {
-    return this.props.plans.map((plan) => {
+    return this.props.goals.map((goal) => {
       return (
-        <li key={plan.name}
-            onClick={() => this.props.selectPlan(plan)}
+        <li key={goal.name}
+            onClick={() => this.props.selectPlan(goal)}
             className="list-group-item list-group-item-action">
-            {plan.name}
+            {goal.name}
         </li>
       );
     });
@@ -28,7 +28,7 @@ class PlanList extends Component {
 
 function mapStateToProps(state) {
   return {
-    plans: state.plans
+    goals: state.goals
   };
 }
 
