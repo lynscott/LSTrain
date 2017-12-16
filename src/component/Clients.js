@@ -6,6 +6,7 @@ import pic_3 from '../img/clients/rocky.jpg';
 class ClientRoll extends Component {
   clientSection() {
     return (
+      <div>
       <div id="carousel" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
           <li data-target="#carousel" data-slide-to="0" className="active"></li>
@@ -47,6 +48,8 @@ class ClientRoll extends Component {
           <span className="sr-only">Next</span>
         </a>
       </div>
+      
+    </div>
     )
   }
 

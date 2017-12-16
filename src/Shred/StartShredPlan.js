@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { intakeForm } from '../actions';
+import { intakeShredForm } from '../actions';
 import { Field, reduxForm} from 'redux-form';
 import Alert from 'react-s-alert';
 import { withRouter } from 'react-router-dom';
 
-class Plan extends Component {
+class ShredForm extends Component {
 
   renderField(field) {
     const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
@@ -37,9 +37,9 @@ class Plan extends Component {
   }
 
   onSubmit(values) {
-    const { history } = this.props;
+    const { history, auth } = this.props;
     console.log(values);
-    this.props.intakeForm(values, history).then( () => Alert.success(<h3>Plan Ready!</h3>, {
+    this.props.intakeShredForm(values, history, auth._id).then( () => Alert.success(<h3>Plan Ready!</h3>, {
       position: 'top',
       effect: 'scale',
     }));
@@ -85,7 +85,7 @@ class Plan extends Component {
     return (
 
           <div className="jumbotron">
-            Strength
+            <h2>Shred Plan Intake Form!</h2>
             {this.renderIntake()}
           </div>
 
@@ -100,5 +100,5 @@ function mapStateToProps({ auth }) {
 export default reduxForm({
   form:'Intakeform',
 })(
-  connect(mapStateToProps,{ intakeForm })(withRouter(Plan))
+  connect(mapStateToProps,{ intakeShredForm })(withRouter(ShredForm))
 );

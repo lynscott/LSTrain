@@ -87,16 +87,20 @@ class App extends Component {
               <InfoBar sendEmail={this.sendEmail} />
               <br />
               <hr />
-              <h1 className="display-3">Premium Programs<br />
-              </h1>
+
+              <Alert stack={{limit: 3}} />
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <h1 className="display-3">Premium Programs<br /></h1>
               <h2>
                 <small className="text-muted">
                   Designed to take you to the next level.
                 </small>
               </h2>
-                <PremiumPlans />
+              <PremiumPlans />
             </div>
-               <Alert stack={{limit: 3}} />
           </div>
         </div>
         <Footer />

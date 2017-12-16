@@ -77,23 +77,6 @@ class TrainingForm extends Component {
       position: 'bottom',
       effect: 'scale',
     }));
-    // fetch('/trainingform', {
-    //   method: 'post',
-    //   headers: new Headers({
-    //     'Content-Type': 'application/json',
-    //   }),
-    //   body: JSON.stringify({name:values.first + values.last,
-    //                         height:values.height,
-    //                         weight:values.weight,
-    //                         email:values.email,
-    //                         age: values.age,
-    //                         gender:values.gender,
-    //                         phone:values.phone,
-    //                         body_fat:values.body_fat,
-    //
-    //                         })
-    // })
-    // .then(res => res.json()).then(() => {this.props.history.push('/')})
   }
 
   render() {

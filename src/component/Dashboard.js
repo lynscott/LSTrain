@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import * as actions from '../actions';
 import PlanList from './PlanList';
 
@@ -13,10 +12,15 @@ class Dashboard extends Component {
       case false:
         return this.props.history.push('/')
       default:
-        return [
-          <h3 key="1">Welcome back ! {this.props.auth.name}</h3>,
-          <img key="2" src={this.props.auth.img} alt="profile" className="img-thumbnail" />
-          ];
+        return (
+          <div class="media">
+            <img class="mr-3" src={this.props.auth.img} alt="placeholder image" />
+            <div class="media-body">
+              <h5 class="mt-0">{this.props.auth.name}</h5>
+              Welcome back!
+            </div>
+          </div>
+        );
     }
   }
 
@@ -26,15 +30,12 @@ class Dashboard extends Component {
   }
 
 
-
-
-
   render() {
     return (
 
         <div className="container">
           <div className="jumbotron justify-content-center">
-            <h1>Dashboard!</h1>
+            <h1>Dashboard</h1>
             {this.renderContent()}<br/>
 
             <PlanList />

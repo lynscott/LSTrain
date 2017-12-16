@@ -13,7 +13,9 @@ import rootReducer from './reducers/index.js';
 import {StripeProvider} from 'react-stripe-elements';
 import promise from 'redux-promise';
 import reduxThunk from 'redux-thunk';
-import StartPlan from './component/StartPlan';
+import StartStrengthPlan from './Strength/StartStrengthPlan';
+import StartShredPlan from './Shred/StartShredPlan';
+import StartTonePlan from './Tone/StartTonePlan';
 import Nav from './component/Nav';
 import ShowPlan from './component/ShowPlan';
 
@@ -27,10 +29,12 @@ ReactDOM.render(
         <StripeProvider apiKey="pk_test_0MmGCS4ik8k7bj9vK53ziyj9">
           <Switch>
             <Route exact path="/about" component={About} />
-            <Route exact path="/dashboard/" component={Dashboard} />
+            <Route exact path="/dashboard/:userid" component={Dashboard} />
             <Route path="/training" component={OnlineTraining} />
-            <Route path="/dashboard/plan/:id" component={ShowPlan} />
-            <Route exact path="/startplan" component={StartPlan} />
+            <Route exact path="/dashboard/plan/:id" component={ShowPlan} />
+            <Route exact path="/startplan/strength/:userid" component={StartStrengthPlan} />
+            <Route exact path="/startplan/shred/:userid" component={StartShredPlan} />
+            <Route exact path="/startplan/tone/:userid" component={StartTonePlan} />
             <Route exact path="/" component={App} />
           </Switch>
         </StripeProvider>

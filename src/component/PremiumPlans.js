@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import StrengthPlan from './StrengthPlan';
-import ShredPlan from './ShredPlan';
-import TonePlan from './TonePlan';
+import StrengthPlan from '../Strength/StrengthPlan';
+import ShredPlan from '../Shred/ShredPlan';
+import TonePlan from '../Tone/TonePlan';
 
 
 class PremiumPlans extends Component {

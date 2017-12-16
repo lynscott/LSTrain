@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../img/white_logo_edit.png';
+import logo from '../img/logo.png';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class Nav extends Component {
   renderContent() {
@@ -18,10 +19,15 @@ class Nav extends Component {
         );
       default:
         return [
-          <Link key="1" className="nav-item nav-link active" to="/dashboard" >Dashboard</Link>,
+          <Link key="1" className="nav-item nav-link active" to={`/dashboard/${this.props.auth._id}`} >Dashboard</Link>,
           <a href="/api/logout"  key="2" className="nav-item nav-link">Logout</a>
         ];
     }
+  }
+
+  componentDidMount() {
+    this.props.fetchUser();
+
   }
 
   render() {
@@ -31,7 +37,7 @@ class Nav extends Component {
           <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 
             <Link className="navbar-brand mx-auto" style={{width: 200}} id="title" to="/">
-              <img src={logo} className="d-inline-block align-top" width="200" height="50" alt="logo" />
+              <img src={logo} className="d-inline-block align-top" width="200" height="60" alt="logo" />
             </Link>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,16 +56,7 @@ class Nav extends Component {
 
             </div>
           </nav>
-          {/* <nav>
-           <div className="nav-wrapper">
-             <a href="#" className="brand-logo center"><img src={logo} width="200" height="50" alt="logo" /></a>
-             <ul id="nav-mobile" className="left hide-on-med-and-down">
-               <li><a href="sass.html">Sass</a></li>
-               <li><a href="badges.html">Components</a></li>
-               <li><a href="collapsible.html">JavaScript</a></li>
-             </ul>
-           </div>
-         </nav> */}
+
         </div>
     );
   }
@@ -69,4 +66,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, actions)(Nav);

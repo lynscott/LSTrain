@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const planStartSchema = require('./StartPlan');
 
 const planSchema = require('./Plans');
 

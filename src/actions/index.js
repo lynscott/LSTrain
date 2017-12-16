@@ -33,19 +33,32 @@ export function contactForm(values, callback) {
 }
 
 
-export function trainingForm(values, callback) {
-  const request = axios.post('/trainingform', values);
+export const trainingForm = (values, callback) => async dispatch => {
+  const res = axios.post('/trainingform', values);
 
-  return {
-    type: TRAINING_FORM,
-    payload: request
+  dispatch({ type: TRAINING_FORM, payload: res.data})
+};
+
+export const intakeStrengthForm = (values, history, id) => async dispatch => {
+    const res = await axios.post('/api/intake/strength', values);
+
+    history.push(`/dashboard/${id}`);
+    dispatch({ type:INTAKE_FORM, payload: res.data });
   };
-}
 
-export const intakeForm = (values, history) => async dispatch => {
-    const res = await axios.post('/api/intake', values);
 
-    history.push('/dashboard');
+export const intakeShredForm = (values, history, id) => async dispatch => {
+    const res = await axios.post('/api/intake/shred', values);
+
+    history.push(`/dashboard/${id}`);
+    dispatch({ type:INTAKE_FORM, payload: res.data });
+  };
+
+
+export const intakeToneForm = (values, history, id) => async dispatch => {
+    const res = await axios.post('/api/intake/tone', values);
+
+    history.push(`/dashboard/${id}`);
     dispatch({ type:INTAKE_FORM, payload: res.data });
   };
 
@@ -57,10 +70,26 @@ export const fetchUser = () => async dispatch => {
   };
 
 
-export const handleToken = (token, history) => async dispatch => {
+export const handleStrengthToken = (token, history, id) => async dispatch => {
   const res = await axios.post('/api/stripe', token);
 
-  history.push('/startplan');
+  history.push(`/startplan/strength/${id}`);
+  dispatch({ type: FETCH_USER, payload: res.data});
+};
+
+
+export const handleShredToken = (token, history, id) => async dispatch => {
+  const res = await axios.post('/api/stripe', token);
+
+  history.push(`/startplan/shred/${id}`);
+  dispatch({ type: FETCH_USER, payload: res.data});
+};
+
+
+export const handleToneToken = (token, history, id) => async dispatch => {
+  const res = await axios.post('/api/stripe', token);
+
+  history.push(`/startplan/tone/${id}`);
   dispatch({ type: FETCH_USER, payload: res.data});
 };
 

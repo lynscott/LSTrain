@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-import strength from '../img/strength.jpg';
+import pic from '../img/strength.jpg';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { withRouter } from 'react-router-dom';
 
+const title = "Strength Plan"
+
 class StrengthPlan extends Component {
   render() {
+    const { history, auth } = this.props;
     return (
       <div className="col-md-3">
         <figure className="figure">
-          <img src={strength} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
-          <figcaption className="figure-caption">A 30 Day Strength and Mass Program.</figcaption>
-
+          <img src={pic} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
+          <figcaption className="figure-caption">Strength and Mass Program.</figcaption>
         </figure>
 
           <StripeCheckout
-            name="Strenth Plan"
-            description="10 Week premium plan designed to take to to your strongest, meanest physique to date.
-            Includes diet and Cardio structure."
+            name={title}
+            description="A 30 Day Strength and Mass Program."
             amount={3900}
-            token={token => this.props.handleToken(token, this.props.history)}
+            token={token => this.props.handleStrengthToken(token, history, auth._id)}
             stripeKey="pk_test_0MmGCS4ik8k7bj9vK53ziyj9"
-            image={strength}
+            image={pic}
             zipCode = {true}
             bitcoin = {true}
             >
@@ -33,4 +34,8 @@ class StrengthPlan extends Component {
     }
   }
 
-export default connect(null, actions)(withRouter(StrengthPlan));
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps, actions)(withRouter(StrengthPlan));
