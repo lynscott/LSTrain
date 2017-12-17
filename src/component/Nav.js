@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../img/logo.png';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Login from './Login';
 
 class Nav extends Component {
   renderContent() {
@@ -15,7 +16,9 @@ class Nav extends Component {
         );
       case false:
         return (
-          <a href="/auth/google" className="nav-item nav-link active">Login with Google</a>
+          <a  className="nav-item nav-link" data-toggle="modal" data-target="#exampleModal">
+            Login
+          </a>
         );
       default:
         return [
@@ -56,7 +59,7 @@ class Nav extends Component {
 
             </div>
           </nav>
-
+          <Login />
         </div>
     );
   }

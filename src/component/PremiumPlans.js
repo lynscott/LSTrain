@@ -14,7 +14,8 @@ class PremiumPlans extends Component {
         <TonePlan />
       </div>
       <br />
-      <h1>Follow Me! @Lsphysique</h1><br />
+      <hr />
+      <h1>Follow Lyn On IG! @Lsphysique</h1><br />
       <div className="row justify-content-center">
 
         <script src="//lightwidget.com/widgets/lightwidget.js"></script>

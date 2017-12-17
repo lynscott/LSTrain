@@ -11,7 +11,8 @@ const userSchema = new Schema ({
   gender: String,
   email: String,
   date: Date,
-  plans: [String]
+  plans: [String],
+  provider: String
 });
 
 mongoose.model('users', userSchema);

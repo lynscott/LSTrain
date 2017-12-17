@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
 import { fetchPlan, fetchUser } from '../actions';
 
 class ShowPlan extends Component {
@@ -47,16 +47,26 @@ class ShowPlan extends Component {
             <h1 className="display-3">{plan.planName} Program</h1>
             </div>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-md-6">
+          <div className="row">
+            <div className="col">
             <h4>Stats:</h4>
-            <ul className="list-unstyled">
+            {/* <ul className="list-unstyled">
               <li>Your BMR: {this.findBMR()} Calories</li>
               <li>Your maintenance calories: {Math.round(this.findBMR() * 1.55)}</li>
               <li>Your daily calorie goal for this plan: {Math.round((this.findBMR() * 1.55) - 500) }</li>
-            </ul>
+            </ul> */}
+            <div class="media">
+              <img class="align-self-start mr-3" src="..." alt="placeholder" />
+              <div class="media-body">
+                <h5 class="mt-0">Plan Overview:</h5>
+                <p>Your BMR: {this.findBMR()} Calories.</p>
+                <p>Your maintenance calories: {Math.round(this.findBMR() * 1.55)}.</p>
+                <p>Your daily calorie goal for this plan: {Math.round((this.findBMR() * 1.55) - 500) }.</p>
+                {/* <h5 class="mt-0">Tips for success on your plan:</h5> */}
+              </div>
+            </div>
           </div>
-          <div className="col-md-6">
+          {/* <div className="col">
             <h4>Tips for success on your plan:</h4>
             <ul className="list-unstyled">
               <li>Drink at least a gallon of water a day!</li>
@@ -64,7 +74,7 @@ class ShowPlan extends Component {
               <li>Take a day in the week to cook for the remainder of the week. This
                 helps prevent eating outside of your plan.</li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -80,6 +90,89 @@ class ShowPlan extends Component {
 
             <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
               <div className="card-body">
+                <nav id="navbar-example2" class="navbar navbar-light bg-light">
+                  <a class="navbar-brand" href=""></a>
+                  <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#beg">Beginner</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#ind">Intermediate</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#adv">Advanced</a>
+                    </li>
+                  </ul>
+                </nav>
+                <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+                  <h4 id="beg">Beginner</h4>
+                  <table className="table table-hover">
+                    <thead className="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Excercise</th>
+                        <th scope="col">Sets</th>
+                        <th scope="col">Reps</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Squat</td>
+                        <td>5</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Leg Press x Walking Lunge</td>
+                        <td>4</td>
+                        <td>10, 10/Leg</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Hack Squat</td>
+                        <td>5</td>
+                        <td>10</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h3>Chest Day</h3>
+                  <table className="table table-hover">
+                    <thead className="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Excercise</th>
+                        <th scope="col">Sets</th>
+                        <th scope="col">Reps</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Bench Press</td>
+                        <td>4</td>
+                        <td>12</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Incline</td>
+                        <td>4</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>DB Flys</td>
+                        <td>4</td>
+                        <td>12</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 id="ind">Intermediate</h4>
+                  <p>...</p>
+                  <h4 id="adv">Advanced</h4>
+                  <p>...</p>
+
+                </div>
                 <p>Try to follow this pattern as best you can.</p>
                 <table className="table table-hover table-bordered">
                   <thead className="thead-light">

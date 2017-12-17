@@ -10,13 +10,13 @@ class Dashboard extends Component {
       case null:
         return '';
       case false:
-        return this.props.history.push('/')
+        return this.props.history.push('/');
       default:
         return (
-          <div class="media">
-            <img class="mr-3" src={this.props.auth.img} alt="placeholder image" />
-            <div class="media-body">
-              <h5 class="mt-0">{this.props.auth.name}</h5>
+          <div className="media">
+            <img className="mr-3" src={this.props.auth.img} alt="placeholder" />
+            <div className="media-body">
+              <h5 className="mt-0">{this.props.auth.name}</h5>
               Welcome back!
             </div>
           </div>

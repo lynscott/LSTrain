@@ -9,10 +9,16 @@ const title = "Shred Plan"
 
 
 class ShredPlan extends Component {
+  renderCaption() {
+    if (!this.props.auth) {
+      return <p>* Login to purchase plans</p>;
+    }
+  }
+
   render() {
     const { history, auth } = this.props;
     return (
-      <div className="col-md-3">
+      <div className="col-md-4">
         <figure className="figure">
           <img src={pic} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
           <figcaption className="figure-caption">A 30 Day Fat Loss Program.</figcaption>
@@ -27,8 +33,9 @@ class ShredPlan extends Component {
           zipCode = {true}
           bitcoin = {true}
           >
-          <button className= "btn btn-success">Buy Premium Plan</button>
+          <button disabled={!auth} className= "btn btn-success">Buy Premium Plan</button>
         </StripeCheckout>
+        {this.renderCaption()}
     </div>
     )
   }
