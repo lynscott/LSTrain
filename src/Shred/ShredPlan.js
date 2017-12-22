@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import pic from '../img/Shred.jpg';
+import pic from '../img/shred_new.jpg';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { withRouter } from 'react-router-dom';
 
-const title = "Shred Plan"
-
+const title = 'Shred Plan';
 
 class ShredPlan extends Component {
   renderCaption() {
@@ -18,26 +17,39 @@ class ShredPlan extends Component {
   render() {
     const { history, auth } = this.props;
     return (
-      <div className="col-md-4">
+      <div className="col-md-4 py-4">
         <figure className="figure">
-          <img src={pic} className="figure-img img-fluid rounded" height="50%" alt=" Plan A" />
-          <figcaption className="figure-caption">A 30 Day Fat Loss Program.</figcaption>
+          <img
+            src={pic}
+            className="figure-img w-50  d-inline-block d-md-none img-fluid rounded"
+            alt=" Plan A"
+          />
+          <img
+            src={pic}
+            className="figure-img d-none d-md-block img-fluid rounded"
+            alt=" Plan A"
+          />
+          <figcaption className="figure-caption">
+            Weight Reduction Program.
+          </figcaption>
         </figure>
         <StripeCheckout
           name={title}
-          description="A 30 Day Fat Loss Program."
+          description="A Weight Reduction Program."
           amount={3900}
           token={token => this.props.handleShredToken(token, history, auth._id)}
           stripeKey="pk_test_0MmGCS4ik8k7bj9vK53ziyj9"
           image={pic}
-          zipCode = {true}
-          bitcoin = {true}
-          >
-          <button disabled={!auth} className= "btn btn-success">Buy Premium Plan</button>
+          zipCode={true}
+          bitcoin={true}
+        >
+          <button disabled={!auth} className="btn btn-success">
+            Buy Premium Plan $39
+          </button>
         </StripeCheckout>
         {this.renderCaption()}
-    </div>
-    )
+      </div>
+    );
   }
 }
 

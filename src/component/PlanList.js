@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPlans } from '../actions/'
+import { fetchPlans } from '../actions/';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import Moment from 'react-moment';
@@ -10,33 +10,33 @@ class PlanList extends Component {
     this.props.fetchPlans();
   }
 
-
   renderList() {
     return _.map(this.props.plans, plan => {
       return (
-        <li key={plan._id}
-            className="list-group-item list-group-item-action">
-            <Link  to={`/dashboard/plan/${plan._id}`}>
-              <h4>{plan.planName}</h4>
-            </Link>
-            <p>Day Started: <Moment format="MM/DD/YYYY">{plan.dateStarted}</Moment></p>
-        </li>
+        <Link
+          className="list-group-item list-group-item-action text-center bg-light"
+          to={`/dashboard/${this.props.auth._id}/plan/${plan._id}`}
+          key={plan._id}
+          id="plan-list"
+        >
+          <h4 className="display-5">{plan.planName}</h4>
+
+          <p className="lead">
+            Day Started:{' '}
+            <Moment format="MM/DD/YYYY hh:mma">{plan.datePurchased}</Moment>
+          </p>
+        </Link>
       );
     });
   }
 
   render() {
-    return (
-      <div>
-        {this.renderList()}
-      </div>
-    );
+    return <div>{this.renderList()}</div>;
   }
 }
 
-
-function mapStateToProps({ plans }) {
-  return { plans };
+function mapStateToProps({ plans, auth }) {
+  return { plans, auth };
 }
 
 export default connect(mapStateToProps, { fetchPlans })(PlanList);

@@ -16,8 +16,7 @@ class Dashboard extends Component {
           <div className="media">
             <img className="mr-3" src={this.props.auth.img} alt="placeholder" />
             <div className="media-body">
-              <h5 className="mt-0">{this.props.auth.name}</h5>
-              Welcome back!
+              <h3 className="display-5">{this.props.auth.name}</h3>
             </div>
           </div>
         );
@@ -26,22 +25,45 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.props.fetchUser();
-
   }
-
 
   render() {
     return (
+      <div>
+        <header id="dash-header" className="py-2 text white">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-md-10 text center" />
+            </div>
+          </div>
+        </header>
 
         <div className="container">
-          <div className="jumbotron justify-content-center">
-            <h1>Dashboard</h1>
-            {this.renderContent()}<br/>
-
+          <div className="jumbotron justify-content-center" id="dash">
+            <i className="fa fa-chart-bar" /> Dashboard
+            {this.renderContent()}
+            <div className="row justify-content-center">
+              <div className="col-md-3 py-3">
+                <a href="" className="btn btn-primary btn-block">
+                  <i className="fa-fa-plus" /> Add Plan
+                </a>
+              </div>
+              <div className="col-md-3 py-3">
+                <a href="" className="btn btn-secondary btn-block">
+                  <i className="fa-fa-plus" /> Check Stats
+                </a>
+              </div>
+              <div className="col-md-3 py-3">
+                <a href="" className="btn btn-primary btn-block">
+                  <i className="fa-fa-plus" /> Upload Progress Pics
+                </a>
+              </div>
+            </div>
+            <br />
             <PlanList />
           </div>
         </div>
-
+      </div>
     );
   }
 }

@@ -15,9 +15,9 @@ class LoginModal extends Component {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
+                {/* <h5 className="modal-title" id="exampleModalLabel">
                   Login
-                </h5>
+                </h5> */}
                 <button
                   type="button"
                   className="close"
@@ -28,13 +28,21 @@ class LoginModal extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                <a href="/auth/google" className="btn btn-outline-danger">
-                  Login With Google
+                <a
+                  href="/auth/google"
+                  id="login-button"
+                  className="btn btn-danger"
+                >
+                  <i className="fab fa-google" /> Login With Google
                 </a>
                 <br />
                 <br />
-                <a href="auth/facebook" className="btn btn-outline-primary">
-                  Login With Facebook
+                <a
+                  href="auth/facebook"
+                  id="login-button"
+                  className="btn btn-primary"
+                >
+                  <i className="fab fa-facebook-f" /> Login With Facebook
                 </a>
               </div>
               <div className="modal-footer">

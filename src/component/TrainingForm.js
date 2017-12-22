@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-import { Field, reset, reduxForm} from 'redux-form';
+import { Field, reset, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { trainingForm } from '../actions';
 import Alert from 'react-s-alert';
+import _ from 'lodash';
 
+const afterSubmit = (result, dispatch) => dispatch(reset('TrainingForm'));
 
-const afterSubmit = (result, dispatch) =>
-  dispatch(reset('TrainingForm'));
-
+const FIELDS = [
+  { name: 'first' },
+  { name: 'last' },
+  { name: 'email' },
+  { name: 'phone' },
+  { name: 'age' },
+  { name: 'gender' },
+  { name: 'weight' },
+  { name: 'height' },
+  { name: 'goals' },
+  { name: 'history' },
+  { name: 'diet' },
+  { name: 'call_info' },
+  { name: 'motivation' },
+  { name: 'plan' }
+];
 
 class TrainingForm extends Component {
   renderField(field) {
-    const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
+    const className = `form-control ${
+      field.meta.touched && field.meta.error ? 'is-invalid' : ''
+    }`;
     return (
       <div className="form-group col-md-4">
         <input
@@ -21,15 +38,42 @@ class TrainingForm extends Component {
           {...field.input}
         />
         <div className="invalid-feedback">
-          {field.meta.touched ? field.meta.error: ''}
+          {field.meta.touched ? field.meta.error : ''}
         </div>
+      </div>
+    );
+  }
 
+  renderSelectPlan(field) {
+    const className = `form-control ${
+      field.meta.touched && field.meta.error ? 'is-invalid' : ''
+    }`;
+    return (
+      <div className="form-group col-md-6">
+        <label>Which plan are you interested in?</label>
+        <select
+          value=" "
+          placeholder={field.placeholder}
+          className={className}
+          type={field.type}
+          {...field.input}
+        >
+          <option value=" ">Select a Plan</option>
+          <option value="Athlete">Athlete $199/Month </option>
+          <option value="Life Style">Life Style $99/Month</option>
+          <option value="Fitness">Fitness $59/Month</option>
+        </select>
+        <div className="invalid-feedback">
+          {field.meta.touched ? field.meta.error : ''}
+        </div>
       </div>
     );
   }
 
   renderSelectField(field) {
-    const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
+    const className = `form-control ${
+      field.meta.touched && field.meta.error ? 'is-invalid' : ''
+    }`;
     return (
       <div className="form-group col-md-4">
         <select
@@ -44,15 +88,16 @@ class TrainingForm extends Component {
           <option value="Female">Female</option>
         </select>
         <div className="invalid-feedback">
-          {field.meta.touched ? field.meta.error: ''}
+          {field.meta.touched ? field.meta.error : ''}
         </div>
-
       </div>
     );
   }
 
   renderTextField(field) {
-    const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
+    const className = `form-control ${
+      field.meta.touched && field.meta.error ? 'is-invalid' : ''
+    }`;
     return (
       <div className="form-group col-md-6">
         <textarea
@@ -60,27 +105,30 @@ class TrainingForm extends Component {
           className={className}
           type={field.type}
           rows="4"
-          {...field.input}>
-        </textarea>
+          {...field.input}
+        />
         <div className="invalid-feedback">
-          {field.meta.touched ? field.meta.error: ''}
+          {field.meta.touched ? field.meta.error : ''}
         </div>
-
       </div>
     );
   }
 
   onSubmit(values) {
     console.log(values);
-    this.props.trainingForm(values).then( () => Alert.success(
-      <h3>Training form sent! We will reach out to you shortly!</h3>, {
-      position: 'bottom',
-      effect: 'scale',
-    }));
+    this.props.trainingForm(values).then(() =>
+      Alert.success(
+        <h3>Training form sent! We will reach out to you shortly!</h3>,
+        {
+          position: 'bottom',
+          effect: 'scale'
+        }
+      )
+    );
   }
 
   render() {
-    const {handleSubmit} = this.props;
+    const { handleSubmit } = this.props;
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -171,38 +219,35 @@ class TrainingForm extends Component {
             type="textarea"
             component={this.renderTextField}
           />
+          <Field
+            placeholder="Plan"
+            name="plan"
+            type="text"
+            component={this.renderSelectPlan}
+          />
         </div>
-        <button type="submit" className="btn btn-outline-primary">Submit</button>
+        <button type="submit" className="btn btn-outline-primary">
+          Submit
+        </button>
       </form>
     );
   }
+}
 
-  }
-
-  function validate(values) {
-
+function validate(values) {
   const errors = {};
-  if (!values.first) {
-    errors.last = <strong>Oops! Forgot your Name.</strong>;
-  }
-  if (!values.email) {
-    errors.email = "Oops! Forgot your Email.";
-  }
-  if (values.gender ==="Gender") {
-    errors.subject = "Oops! Please choose an option.";
-  }
-  if (!values.last) {
-    errors.message = "Oops! Your message needs a message!";
-  }
 
+  _.each(FIELDS, ({ name }) => {
+    if (!values[name]) {
+      errors[name] = 'You must provide a value';
+    }
+  });
 
   return errors;
-  }
+}
 
 export default reduxForm({
   validate,
   form: 'TrainingForm',
-  onSubmitSuccess: afterSubmit,
-})(
-  connect(null, { trainingForm })(TrainingForm)
-);
+  onSubmitSuccess: afterSubmit
+})(connect(null, { trainingForm })(TrainingForm));

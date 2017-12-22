@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {selectPlan} from '../actions/index';
+import { bindActionCreators } from 'redux';
+import { selectPlan } from '../actions/index';
 
 class PlanList extends Component {
   renderPlans() {
-    return this.props.goals.map((goal) => {
+    return this.props.goals.map(goal => {
       return (
-        <li key={goal.name}
-            onClick={() => this.props.selectPlan(goal)}
-            className="list-group-item list-group-item-action">
-            {goal.name}
+        <li
+          key={goal.name}
+          id="planlist"
+          onClick={() => this.props.selectPlan(goal)}
+          className="list-group-item list-group-item-action"
+        >
+          {goal.name}
         </li>
       );
     });
@@ -18,11 +21,9 @@ class PlanList extends Component {
   render() {
     return (
       <div>
-      <ul className="list-group">
-        {this.renderPlans()}
-      </ul>
-    </div>
-    )
+        <ul className="list-group">{this.renderPlans()}</ul>
+      </div>
+    );
   }
 }
 
@@ -33,8 +34,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({selectPlan: selectPlan}, dispatch)
+  return bindActionCreators({ selectPlan: selectPlan }, dispatch);
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlanList);
