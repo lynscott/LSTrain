@@ -4,23 +4,13 @@ import logo from '../img/logo.png';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Login from './Login';
+import LoadingBar from './LoadingBar';
 
 class Nav extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return (
-          <div className="progress">
-            <div
-              className="progress-bar progress-bar-striped progress-bar-animated"
-              role="progressbar"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style={{ width: '75%' }}
-            />
-          </div>
-        );
+        return <LoadingBar />;
       case false:
         return (
           <a
@@ -62,8 +52,8 @@ class Nav extends Component {
       <div>
         <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
           <Link
-            className="navbar-brand mx-auto"
-            style={{ width: 200 }}
+            className="navbar-brand mx-auto d-block"
+            style={{ width: 150 }}
             id="title"
             to="/"
           >

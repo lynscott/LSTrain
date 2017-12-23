@@ -30,7 +30,7 @@ class StrengthPlan extends Component {
             alt=" Plan A"
           />
           <figcaption className="figure-caption">
-            Strength and Mass Program.
+            12 Week Strength and Mass Program.
           </figcaption>
         </figure>
         <StripeCheckout

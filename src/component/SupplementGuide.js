@@ -4,6 +4,12 @@ class Guide extends Component {
   render() {
     return (
       <div className="list-group bg-dark text-dark">
+        <p className="text-white py-3">
+          Supplements will help maximize your results and keep your body in good
+          condition with the extra stress of training. Below is a list of key
+          supplements and proper dosing. You can find all of these items on
+          amazon or at your local nutrition and supplement store.
+        </p>
         <a className="list-group-item list-group-item-action flex-column align-items-start">
           <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">Glutamine</h5>
@@ -34,7 +40,7 @@ class Guide extends Component {
         <a className="list-group-item list-group-item-action flex-column align-items-start">
           <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">Digestive Enzymes</h5>
-            {/* <small class="text-muted">3 days ago</small> */}
+            <small class="text-muted">3 days ago</small>
           </div>
           <p className="mb-1">
             Breaks down Fats, Carbs & Protein. Optimizes Nutrient Availability.

@@ -30,7 +30,7 @@ class ShredPlan extends Component {
             alt=" Plan A"
           />
           <figcaption className="figure-caption">
-            Weight Reduction Program.
+            12 Week Weight Loss Program.
           </figcaption>
         </figure>
         <StripeCheckout

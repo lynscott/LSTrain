@@ -30,7 +30,7 @@ class TonePlan extends Component {
             alt=" Plan A"
           />
           <figcaption className="figure-caption">
-            Tone & Sculpt Program.
+            12 Week Tone & Sculpt Program.
           </figcaption>
         </figure>
         <StripeCheckout

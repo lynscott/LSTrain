@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import NutritionGuide from './NutritionGuide';
 import SupplementGuide from './SupplementGuide';
-import TrainingGuide from './TrainingGuide';
+import TrainingStrength from './TrainingStrength';
+import TrainingTone from './TrainingTone';
+import TrainingWeightLoss from './TrainingWeightLoss';
+import LoadingBar from './LoadingBar';
 
 class PlanHeader extends Component {
+  trainingSelector() {
+    switch (this.props.planType) {
+      case 'Savage Strength':
+        return <TrainingStrength />;
+      case 'Weight Loss':
+        return <TrainingWeightLoss />;
+      case 'Tone & Sculpt':
+        return <TrainingTone />;
+      default:
+        return <LoadingBar />;
+    }
+  }
+
   render() {
+    const calories = this.props.caloricGoal;
+    console.log(this.props);
     return (
       <div id="accordion" role="tablist">
         <div className="card">
@@ -29,9 +47,7 @@ class PlanHeader extends Component {
             aria-labelledby="headingOne"
             data-parent="#accordion"
           >
-            <div className="card-body bg-dark">
-              <TrainingGuide />
-            </div>
+            <div className="card-body bg-dark">{this.trainingSelector()}</div>
           </div>
         </div>
         <div className="card">
@@ -56,7 +72,7 @@ class PlanHeader extends Component {
             data-parent="#accordion"
           >
             <div className="card-body bg-dark">
-              <NutritionGuide caloricGoal={this.caloricGoal} />
+              <NutritionGuide caloricGoal={calories} />
             </div>
           </div>
         </div>

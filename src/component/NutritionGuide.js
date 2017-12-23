@@ -7,6 +7,7 @@ class Guide extends Component {
         <p>
           To get the best results for your training eat at least 6 small to
           medium sized meals a day, every 2-3 hours.<br />
+          <br />
           <strong>For Weight Loss:</strong> Eat at least 1g of protein per lb of
           body weight per day. Eat 100g-200g of carbs per day focusing your
           highest carb intake on your most taxing training days (Legs/Back).
@@ -18,9 +19,34 @@ class Guide extends Component {
           on your on your most taxing training days (Legs/Back) and lower on
           rest days. Keep fats minimal, within 50g-70g.
         </p>
+        <h4>Macronutrients</h4>
+        <p>
+          Body type plays an important role in macro-nutrient breakdown. When
+          putting together your nutrition plan be sure to factor in your body
+          type to maximize your results:<br />
+          <br />Ectomorph<br />
+          In general, ectomorphs are lean with smaller bone structures and
+          longer limbs, have a high metabolism, and can tolerate higher amounts
+          of carbohydrates. They look like: long-distance runners Recommended
+          macronutrients ratio: 40%-50% carbohydrates, 40%-30% protein, 20% fat<br />
+          <br />Mesomorph<br />
+          Mesomorphs tend to get the best of both worlds, offering balanced
+          abilities to gain muscle and stay lean relatively easily. They are of
+          medium sized bone structure and look athletic. They look like:
+          bodybuilders, gymnasts Recommended macronutrients ratio: 40%
+          carbohydrates, 30% protein, 30% fat<br />
+          <br />Endomorph<br />
+          Endormorphs are built to be larger and more powerful. They tend to
+          have larger bone structures for strength. Because of their size, they
+          do better on a higher fat and a lower carbohydrate intake. They look
+          like: powerlifters, Recommended macronutrients ratio: 20%-25%
+          carbohydrates, 40%-35% protein, 40% fat<br />
+          <br />Rarely does anyone fit in any one category, use your discretion.
+        </p>
         <p>
           Below is a list of healthy food options.
-          <br />Mix and match to hit your caloric goal: {this.props.caloricGoal}
+          <br />Mix and match to hit your caloric goal:{' '}
+          {Math.round(this.props.caloricGoal)}
         </p>
         <h4>Protein</h4>
         <table className="table table-hover table-responsive-sm table-striped table-bordered">

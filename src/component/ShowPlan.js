@@ -12,7 +12,7 @@ class ShowPlan extends Component {
   }
 
   findBMR() {
-    const { weight, height, age, activity_mod } = this.props.plan;
+    const { weight, height, age } = this.props.plan;
     const { gender } = this.props.auth;
     const inToCm = height * 2.54;
     const lbsToKg = weight / 2.2;
@@ -25,10 +25,28 @@ class ShowPlan extends Component {
     }
   }
 
-  async caloricGoal() {
-    //This is where we will use the acitivy var
-    const maintenanceCal = (await this.findBMR()) * 1.55;
-    return maintenanceCal;
+  pathSelect() {
+    const { activity_mod } = this.props.plan;
+    if (1.2 === activity_mod || activity_mod === 1.375) {
+      return 'Fitness';
+    } else if (activity_mod === 1.55) {
+      return 'Life Style';
+    } else if (activity_mod === 1.725 || activity_mod === 1.9) {
+      return 'Athlete';
+    }
+  }
+
+  calorieSelect() {
+    const { planName } = this.props.plan;
+    console.log(this.props.plan);
+    const calories = this.findBMR() * this.props.plan.activity_mod;
+    if (planName === 'Savage Strength') {
+      return calories + 300;
+    } else if (planName === 'Weight Loss') {
+      return calories - 800;
+    } else if (planName === 'Tone & Sculpt') {
+      return calories - 400;
+    }
   }
 
   render() {
@@ -63,35 +81,44 @@ class ShowPlan extends Component {
               </div>
             </div>
             <div className="row justify-content-center">
-              <div className="col-md-4 text-center pb-2">
-                <h1 className="display-4">{plan.planName} Program</h1>
+              <div className="col-md-6 text-center pb-2">
+                <h3 className="display-4">{plan.planName} Program</h3>
               </div>
-              <div className="col-md-4 text-left ml-2">
-                <h4>Stats:</h4>
+              <div className="col-md-6 text-center ml-2">
+                <h4 className="text-center">Stats:</h4>
                 <ul className="list-unstyled">
                   <li>
-                    <strong>Your BMR: {this.findBMR()} Calories</strong>
-                  </li>
-                  <li>
                     <strong>
-                      Your maintenance calories:{' '}
-                      {Math.round(
-                        this.findBMR() * this.props.plan.activity_mod
-                      )}
+                      <p className="lead mb-0">
+                        {' '}
+                        BMR: ~ {this.findBMR()} Calories
+                      </p>
                     </strong>
                   </li>
                   <li>
                     <strong>
-                      Your daily calorie goal for this plan:{' '}
-                      {Math.round(
-                        this.findBMR() * this.props.plan.activity_mod - 600
-                      )}
+                      <p className="lead mb-0">
+                        Maintenance Calories: ~{' '}
+                        {Math.round(
+                          this.findBMR() * this.props.plan.activity_mod
+                        )}
+                      </p>
+                    </strong>
+                  </li>
+                  <li>
+                    <strong>
+                      <p className="lead">
+                        Daily Calorie Goal: ~ {Math.round(this.calorieSelect())}
+                      </p>
                     </strong>
                   </li>
                 </ul>
               </div>
             </div>
-            <PlanHeader caloricGoal={this.caloricGoal} />
+            <PlanHeader
+              caloricGoal={this.calorieSelect()}
+              planType={this.props.plan.planName}
+            />
           </div>
         </div>
       </section>

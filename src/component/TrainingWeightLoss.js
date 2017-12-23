@@ -5,32 +5,33 @@ class Plan extends Component {
     return (
       <section>
         <nav id="navbar-example2" className="navbar navbar-light bg-light">
-          {/* <a class="navbar-brand" href="#">
-            Savage Strength
-          </a> */}
           <ul className="nav nav-pills mx-auto">
             <li className="nav-item">
               <a className="nav-link" href="#fat">
-                Fitness
+                Weeks 1-4
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#mdo">
-                LifeStyle
+                Weeks 5-8
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#athlete">
-                Athlete
+                Weeks 9-12
               </a>
             </li>
           </ul>
         </nav>
         <div data-spy="scroll" data-target="#navbar-example2" data-offset="10">
-          <h1 id="fat">Fitness</h1>
+          <h1 id="fat" className="py-3">
+            Weeks 1-4
+          </h1>
           <p>
             Keep your intensity and focus high! Be sure to warm up properly and
-            keep your form strict. 60s rest break between sets.
+            keep your form strict. 60s rest break between sets. Great cardio can
+            be treadmill, stairmaster, a jog/running something to keep your body
+            moving at a steady pace for the alloted time.
           </p>
           <p>
             *Suggested Schedule, Adjust Accordingly*<br /> *SS = Super Set, *RDL
@@ -57,7 +58,7 @@ class Plan extends Component {
                 <td>Tuesday</td>
                 <td>Chest & Triceps</td>
                 <td>
-                  20-30 mins<br />Steady State
+                  30 mins<br />Steady State
                 </td>
               </tr>
               <tr>
@@ -65,7 +66,7 @@ class Plan extends Component {
                 <td>Thurs</td>
                 <td>Back & Biceps</td>
                 <td>
-                  20-30 mins<br />Steady State
+                  30 mins<br />Steady State
                 </td>
               </tr>
               <tr>
@@ -73,12 +74,20 @@ class Plan extends Component {
                 <td>Friday</td>
                 <td>Shoulders and Abs</td>
                 <td>
-                  20-30 mins<br />Steady State
+                  30 mins<br />Steady State
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Saturday or Sunday</td>
+                <td />
+                <td>
+                  30 mins<br />Steady State
                 </td>
               </tr>
             </tbody>
           </table>
-          <h4>Leg Day</h4>
+          <h3>Leg Day</h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -92,21 +101,21 @@ class Plan extends Component {
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td>Back Squat(Bar or Smith Machine)</td>
-                <td>5</td>
-                <td>10</td>
-                <td> - 1 - </td>
+                <td>Back Squat(Smith Machine)</td>
+                <td>4</td>
+                <td>12, 10, 8, 8</td>
+                <td> 2- 1 -2 </td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Leg Press</td>
                 <td>4</td>
-                <td>10</td>
-                <td> - 1 - </td>
+                <td>15 ,12 ,10 ,8</td>
+                <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td>Hack Squat</td>
+                <td>Lateral Lunge</td>
                 <td>4</td>
                 <td>10</td>
                 <td> - 1 - </td>
@@ -122,14 +131,14 @@ class Plan extends Component {
                 <th scope="row">5</th>
                 <td>Leg Curls</td>
                 <td>3</td>
-                <td>10</td>
+                <td>15</td>
                 <td> - 1 - </td>
               </tr>
               <tr>
                 <th scope="row">6</th>
                 <td>Calf Raises</td>
                 <td>4</td>
-                <td>10</td>
+                <td>20</td>
                 <td> - 1 - </td>
               </tr>
             </tbody>
@@ -154,21 +163,21 @@ class Plan extends Component {
                 <th scope="row">1</th>
                 <td>Bench Press</td>
                 <td>4</td>
-                <td>12</td>
+                <td>15, 12, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Incline Press</td>
                 <td>4</td>
-                <td>10</td>
+                <td>15, 12, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>DB Flys</td>
                 <td>4</td>
-                <td>8</td>
+                <td>15, 12, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
@@ -182,19 +191,12 @@ class Plan extends Component {
                 <th scope="row">5</th>
                 <td>Tricep Extension (rope)</td>
                 <td>4</td>
-                <td>10</td>
+                <td>12, 10, 8, 8</td>
                 <td>1 - 1 - 1</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Seated Dumbbell Overhead</td>
-                <td>4</td>
-                <td>8</td>
-                <td> - 1 - </td>
               </tr>
             </tbody>
           </table>
-          <h4>Back & Biceps</h4>
+          <h3>Back & Biceps</h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -212,39 +214,32 @@ class Plan extends Component {
                   Wide Grip <br /> Lat Pulldown
                 </td>
                 <td>4</td>
-                <td>10</td>
-                <td>2 - 1 - 2</td>
+                <td>15, 12, 10, 8</td>
+                <td>3 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Dumbbell Row</td>
                 <td>4</td>
                 <td>10/Arm</td>
-                <td>1 - 1 - 2</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>T-Bar Row</td>
-                <td>4</td>
-                <td>10</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
-                <th scope="row">4</th>
+                <th scope="row">3</th>
                 <td>Barbell Overhand Grip Row</td>
                 <td>4</td>
                 <td>10</td>
-                <td>1 - 1 - 3</td>
+                <td>2 - 1 - 3</td>
               </tr>
               <tr>
-                <th scope="row">5</th>
+                <th scope="row">4</th>
                 <td>Standing Barbell Curl</td>
                 <td>4</td>
                 <td>10</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
-                <th scope="row">6</th>
+                <th scope="row">5</th>
                 <td>Standing Hammer Curl</td>
                 <td>4</td>
                 <td>10</td>
@@ -252,7 +247,7 @@ class Plan extends Component {
               </tr>
             </tbody>
           </table>
-          <h4>Shoulders & Abs</h4>
+          <h3>Shoulders & Abs</h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -270,7 +265,7 @@ class Plan extends Component {
                   Shoulder Press <br /> (Machine or DB)
                 </td>
                 <td>4</td>
-                <td>10</td>
+                <td>15, 12, 10 ,8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
@@ -291,7 +286,7 @@ class Plan extends Component {
                 <th scope="row">4</th>
                 <td>Barbell Upright Row</td>
                 <td>4</td>
-                <td>10</td>
+                <td>12, 10, 8, 8</td>
                 <td>1 - 1 - 1</td>
               </tr>
               <tr>
@@ -310,9 +305,12 @@ class Plan extends Component {
               </tr>
             </tbody>
           </table>
-          <h1 id="mdo">Life Style</h1>
+          <h1 id="mdo" className="py-3">
+            Weeks 5-8
+          </h1>
           <p>
-            Keep your intensity and focus high! 60s rest break between sets.
+            Keep your intensity and focus high! 60 second rest break between
+            sets.
           </p>
           <p>
             *Suggested Schedule, Adjust Accordingly*<br /> *SS = Super Set, *RDL
@@ -339,7 +337,7 @@ class Plan extends Component {
                 <td>Tuesday</td>
                 <td>Chest & Triceps</td>
                 <td>
-                  30 mins<br />Steady State
+                  30-40 mins<br />Steady State
                 </td>
               </tr>
               <tr>
@@ -347,7 +345,7 @@ class Plan extends Component {
                 <td>Thurs</td>
                 <td>Back & Biceps</td>
                 <td>
-                  30 mins<br />Steady State
+                  30-40 mins<br />Steady State
                 </td>
               </tr>
               <tr>
@@ -355,7 +353,15 @@ class Plan extends Component {
                 <td>Friday</td>
                 <td>Shoulders and Abs</td>
                 <td>
-                  30 mins<br />Steady State
+                  30-40 mins<br />Steady State
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Saturday or Sunday</td>
+                <td>Shoulders and Abs</td>
+                <td>
+                  30-40 mins<br />Steady State
                 </td>
               </tr>
             </tbody>
@@ -377,7 +383,7 @@ class Plan extends Component {
                 <td>Back Squat (Bar)</td>
                 <td>5</td>
                 <td>10</td>
-                <td> - 1 - </td>
+                <td> 2- 1 -2 </td>
               </tr>
               <tr>
                 <th scope="row">2</th>
@@ -391,7 +397,7 @@ class Plan extends Component {
                 <td>Hack Squat</td>
                 <td>4</td>
                 <td>10</td>
-                <td> - 1 - </td>
+                <td> 2- 1 -2 </td>
               </tr>
               <tr>
                 <th scope="row">4</th>
@@ -436,21 +442,21 @@ class Plan extends Component {
                 <th scope="row">1</th>
                 <td>Barbell Bench Press</td>
                 <td>4</td>
-                <td>12</td>
+                <td>15,12, 10 , 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>DB Incline Press</td>
                 <td>4</td>
-                <td>10</td>
+                <td>15, 12, 10 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>DB Bench Press & DB Flys *SS</td>
                 <td>4</td>
-                <td>8</td>
+                <td>10</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
@@ -464,19 +470,19 @@ class Plan extends Component {
                 <th scope="row">5</th>
                 <td>Tricep Extension (rope)</td>
                 <td>4</td>
-                <td>10</td>
+                <td>12</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">6</th>
                 <td>Seated Dumbbell Overhead</td>
                 <td>4</td>
-                <td>8</td>
-                <td> - 1 - </td>
+                <td>12</td>
+                <td>2 - 1 - 2</td>
               </tr>
             </tbody>
           </table>
-          <h4>Back & Biceps</h4>
+          <h3>Back & Biceps</h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -494,21 +500,21 @@ class Plan extends Component {
                   Wide Grip <br /> Lat Pulldown
                 </td>
                 <td>4</td>
-                <td>10</td>
+                <td>15, 12, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Dumbbell Row & Straight Arm Pulldown *SS</td>
                 <td>4, 4</td>
-                <td>10/Arm, 12</td>
-                <td>1 - 1 - 2, 2 - 1 - 1</td>
+                <td>10/Arm, 15</td>
+                <td>2 - 1 - 2, 2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>T-Bar Row</td>
                 <td>4</td>
-                <td>10</td>
+                <td>12, 10, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
@@ -520,9 +526,9 @@ class Plan extends Component {
               </tr>
               <tr>
                 <th scope="row">5</th>
-                <td>Preacher Curl SS Hammer Curl</td>
-                <td>4, 4</td>
-                <td>10, 8</td>
+                <td>Preacher Curl</td>
+                <td>4,</td>
+                <td>15, 12, 10, 8</td>
                 <td>2 - 1 - 2 for both</td>
               </tr>
               <tr>
@@ -534,7 +540,7 @@ class Plan extends Component {
               </tr>
             </tbody>
           </table>
-          <h4>Shoulders & Abs</h4>
+          <h3>Shoulders & Abs</h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -552,7 +558,7 @@ class Plan extends Component {
                   Shoulder Press <br /> (Machine or DB)
                 </td>
                 <td>4</td>
-                <td>10</td>
+                <td>15, 12, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
@@ -560,7 +566,7 @@ class Plan extends Component {
                 <td>Standing Lateral Raise</td>
                 <td>4</td>
                 <td>10</td>
-                <td>1 - 1 - 3</td>
+                <td>1 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
@@ -573,12 +579,12 @@ class Plan extends Component {
                 <th scope="row">4</th>
                 <td>Seated Arnold Press</td>
                 <td>4</td>
-                <td>10</td>
+                <td>12, 10, 10, 8</td>
                 <td>1 - 1 - 1</td>
               </tr>
               <tr>
                 <th scope="row">5</th>
-                <td>Hanging or Leg Raises</td>
+                <td>Hanging or Laying Leg Raises</td>
                 <td>3</td>
                 <td>15</td>
                 <td>2 - 1 - 2</td>
@@ -592,7 +598,9 @@ class Plan extends Component {
               </tr>
             </tbody>
           </table>
-          <h1 id="athlete">Athlete</h1>
+          <h1 id="athlete" className="py-3">
+            Weeks 9-12
+          </h1>
           <p>
             Challenge yourself and push a good weight, the last two reps should
             be a challenge!
@@ -623,7 +631,7 @@ class Plan extends Component {
                 <td>Tuesday</td>
                 <td>Chest</td>
                 <td>
-                  20-30 mins<br />Steady State
+                  45 mins<br />Steady State
                 </td>
               </tr>
               <tr>
@@ -631,7 +639,7 @@ class Plan extends Component {
                 <td>Thurs</td>
                 <td>Back</td>
                 <td>
-                  20-30 mins<br />Steady State
+                  45 mins<br />Steady State
                 </td>
               </tr>
               <tr>
@@ -639,14 +647,14 @@ class Plan extends Component {
                 <td>Friday</td>
                 <td>Shoulders and Abs</td>
                 <td>
-                  20-30 mins<br />Steady State
+                  45 mins<br />Steady State
                 </td>
               </tr>
               <tr>
                 <th scope="row">5</th>
                 <td>Saturday or Sunday</td>
                 <td>Arms</td>
-                <td>No Cardio</td>
+                <td>45 mins</td>
               </tr>
             </tbody>
           </table>
@@ -666,35 +674,35 @@ class Plan extends Component {
                 <th scope="row">1</th>
                 <td>Back Squat(Barbell) & RDLs *SS </td>
                 <td>5</td>
-                <td>10, 8</td>
+                <td>10, 15</td>
                 <td> - 1 - </td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Leg Press & Walking Lunge *SS</td>
                 <td>4, 4</td>
-                <td>10, 10/ leg</td>
+                <td>15, 10/ leg</td>
                 <td> - 1 - </td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>Hack Squat</td>
                 <td>4</td>
-                <td>10</td>
-                <td> - 1 - </td>
+                <td>12</td>
+                <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">4</th>
                 <td>Leg Curls</td>
                 <td>3</td>
-                <td>10</td>
+                <td>12</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">5</th>
                 <td>Standing Calf Raises & Seated Calf Raise SS</td>
                 <td>3</td>
-                <td>10</td>
+                <td>15</td>
                 <td>2 - 1 - 2</td>
               </tr>
             </tbody>
@@ -718,41 +726,41 @@ class Plan extends Component {
               <tr>
                 <th scope="row">1</th>
                 <td>Barbell Bench Press</td>
-                <td>5</td>
-                <td>12</td>
+                <td>4</td>
+                <td>18, 15, 12, 10</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>DB Incline Press</td>
-                <td>5</td>
-                <td>10</td>
+                <td>4</td>
+                <td>15, 12, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>DB Bench Press & DB Flys *SS</td>
-                <td>5</td>
-                <td>8</td>
+                <td>4</td>
+                <td>10, 10</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">4</th>
                 <td>Machine Flys</td>
                 <td>4</td>
-                <td>12</td>
-                <td> 2- 1 - 2</td>
+                <td>18, 15, 12, 10</td>
+                <td>2- 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">5</th>
-                <td>Cable Flys & Dips *SS</td>
+                <td>Dips</td>
                 <td>4</td>
                 <td>12</td>
                 <td> 2- 1 - 2</td>
               </tr>
             </tbody>
           </table>
-          <h4>Back </h4>
+          <h3>Back </h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -770,7 +778,7 @@ class Plan extends Component {
                   Wide Grip <br /> Lat Pulldown
                 </td>
                 <td>4</td>
-                <td>10</td>
+                <td>18, 15, 12, 10</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
@@ -778,20 +786,20 @@ class Plan extends Component {
                 <td>Dumbbell Row & Straight Arm Pulldown *SS</td>
                 <td>4, 4</td>
                 <td>10/Arm, 12</td>
-                <td>1 - 1 - 2, 2 - 1 - 1</td>
+                <td>2 - 1 - 2, 2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>T-Bar Row & Pullups(Assisted or Regular) *SS</td>
                 <td>4</td>
-                <td>10</td>
+                <td>10, 12</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">4</th>
                 <td>DB Shrugs & Rear Delt Flys *SS</td>
                 <td>4</td>
-                <td>15</td>
+                <td>15, 12</td>
                 <td>1 - 1 - 1</td>
               </tr>
               <tr>
@@ -803,7 +811,7 @@ class Plan extends Component {
               </tr>
             </tbody>
           </table>
-          <h4>Shoulders & Abs</h4>
+          <h3>Shoulders & Abs</h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -821,14 +829,14 @@ class Plan extends Component {
                   Shoulder Press <br /> (Machine or DB)
                 </td>
                 <td>5</td>
-                <td>10</td>
+                <td>15, 12, 10, 8, 12</td>
                 <td>2 - 1 - 2</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Standing Tri-Lateral Raise</td>
                 <td>4</td>
-                <td>10</td>
+                <td>8</td>
                 <td>1 - 1 - 1</td>
               </tr>
               <tr>
@@ -842,12 +850,12 @@ class Plan extends Component {
                 <th scope="row">4</th>
                 <td>Seated Arnold Press</td>
                 <td>4</td>
-                <td>10</td>
+                <td>12, 10, 10, 8</td>
                 <td>1 - 1 - 1</td>
               </tr>
               <tr>
                 <th scope="row">5</th>
-                <td>Hanging or Leg Raises</td>
+                <td>Hanging or Laying Leg Raises</td>
                 <td>3</td>
                 <td>15</td>
                 <td>2 - 1 - 2</td>
@@ -861,7 +869,7 @@ class Plan extends Component {
               </tr>
             </tbody>
           </table>
-          <h4>Arms</h4>
+          <h3>Arms</h3>
           <table className="table table-responsive-sm table-hover">
             <thead className="thead-dark">
               <tr>
@@ -877,7 +885,7 @@ class Plan extends Component {
                 <th scope="row">1</th>
                 <td>Preacher Curl & Hammer Curl *SS</td>
                 <td>4, 4</td>
-                <td>10, 8</td>
+                <td>12, 10, 10, 8/ 8</td>
                 <td>2 - 1 - 2 for both</td>
               </tr>
               <tr>
@@ -896,16 +904,16 @@ class Plan extends Component {
               </tr>
               <tr>
                 <th scope="row">4</th>
-                <td>Seated Dumbbell Overhead</td>
+                <td>Seated Dumbbell Overhead Extension</td>
                 <td>4</td>
-                <td>8</td>
+                <td>12, 10, 10, 8</td>
                 <td> - 1 - </td>
               </tr>
               <tr>
                 <th scope="row">5</th>
                 <td>Barbell Skull Crushers</td>
                 <td>4</td>
-                <td>8</td>
+                <td>12, 10, 10, 8</td>
                 <td>2 - 1 - 2</td>
               </tr>
             </tbody>
